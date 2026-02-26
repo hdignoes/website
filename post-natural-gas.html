@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Natural Gas in a Sustainable World — Hugo Dignoes Ricart</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ── Article layout ── */
+    .article-wrap {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    /* ── Article body ── */
+    .article-body {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 3rem 3.2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      font-size: .84rem;
+      color: var(--light-muted);
+      margin-bottom: 1.4rem;
+      flex-wrap: wrap;
+    }
+    .article-meta span { display: flex; align-items: center; gap: .38rem; }
+
+    .article-title {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.2;
+      letter-spacing: -.025em;
+      margin-bottom: .45rem;
+    }
+
+    .article-subtitle {
+      font-size: 1.1rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 1.6rem;
+    }
+
+    .article-tags { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+
+    .article-divider {
+      border: none;
+      border-top: 2px solid var(--border);
+      margin: 2rem 0;
+    }
+
+    .article-content { font-size: 1rem; line-height: 1.82; color: var(--text); }
+
+    .article-content h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin: 2.2rem 0 .9rem;
+      padding-bottom: .4rem;
+      border-bottom: 2px solid var(--bg);
+    }
+
+    .article-content p { margin-bottom: 1.1rem; }
+    .article-content p:last-child { margin-bottom: 0; }
+
+    .article-content a { color: var(--blue-light); }
+    .article-content a:hover { text-decoration: underline; }
+
+    .article-content strong { color: var(--navy); }
+
+    /* ── Chemical equation box ── */
+    .chem-equation {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--teal);
+      border-radius: 8px;
+      padding: 1rem 1.4rem;
+      margin: 1.2rem 0;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1rem;
+      color: var(--navy);
+      font-weight: 500;
+    }
+
+    /* ── Callout box ── */
+    .callout {
+      background: #ebf5fb;
+      border: 1px solid #aed6f1;
+      border-radius: var(--radius);
+      padding: 1.1rem 1.4rem;
+      margin: 1.4rem 0;
+      font-size: .95rem;
+      color: var(--navy);
+      line-height: 1.68;
+    }
+    .callout-title {
+      font-weight: 700;
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--blue-light);
+      margin-bottom: .4rem;
+    }
+
+    /* ── Sidebar ── */
+    .article-sidebar {
+      position: sticky;
+      top: calc(var(--nav-h) + 1.5rem);
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .sidebar-widget {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.6rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .sidebar-widget-title {
+      font-size: .78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--teal);
+      margin-bottom: .9rem;
+    }
+
+    .toc-list { list-style: none; }
+    .toc-list li {
+      border-bottom: 1px solid var(--border);
+      padding: .4rem 0;
+    }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a {
+      font-size: .88rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .toc-list a:hover { color: var(--blue-light); text-decoration: none; }
+    .toc-list a::before {
+      content: '§';
+      color: var(--teal);
+      font-size: .8rem;
+    }
+
+    .author-card {
+      display: flex;
+      align-items: center;
+      gap: .9rem;
+    }
+    .author-avatar {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+    }
+    .author-avatar-fallback {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted); font-size: 1.4rem;
+    }
+    .author-name {
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .author-role {
+      font-size: .8rem;
+      color: var(--muted);
+    }
+
+    .related-link {
+      display: flex;
+      align-items: flex-start;
+      gap: .7rem;
+      text-decoration: none;
+      color: inherit;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: .7rem;
+      margin-bottom: .7rem;
+      transition: color var(--transition);
+    }
+    .related-link:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .related-link:hover { color: var(--blue-light); text-decoration: none; }
+    .related-link i { color: var(--teal); margin-top: .2rem; flex-shrink: 0; }
+    .related-link-title { font-size: .9rem; font-weight: 600; color: var(--navy); }
+    .related-link-meta { font-size: .8rem; color: var(--muted); }
+
+    /* ── Breadcrumb ── */
+    .breadcrumb {
+      font-size: .85rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .breadcrumb a { color: var(--muted); }
+    .breadcrumb a:hover { color: var(--blue-light); text-decoration: none; }
+    .breadcrumb i { font-size: .7rem; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .article-wrap { grid-template-columns: 1fr; }
+      .article-sidebar { position: static; }
+    }
+
+    @media (max-width: 600px) {
+      .article-body { padding: 1.6rem 1.3rem; }
+      .article-title { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" style="text-decoration:none">
+      <div class="nav-brand">
+        <span class="nav-brand-name">Hugo Dignoes Ricart</span>
+        <span class="nav-brand-role">Chemical Process Engineering</span>
+      </div>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html">About</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="writing.html" class="active">Writing</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── BODY ─────────────────────────────────────────────────────── -->
+<section class="section" style="background: var(--bg);">
+  <div class="container">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <a href="writing.html">Writing</a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <span style="color: var(--navy);">Natural Gas in a Sustainable World</span>
+    </nav>
+
+    <div class="article-wrap">
+
+      <!-- ── Main article ── -->
+      <main>
+        <article class="article-body">
+
+          <div class="article-meta">
+            <span><i class="fa-solid fa-calendar-days"></i> December 13, 2020</span>
+            <span><i class="fa-regular fa-clock"></i> ~8 min read</span>
+            <span><i class="fa-solid fa-user"></i> Hugo Dignoes Ricart</span>
+          </div>
+
+          <h1 class="article-title">Natural Gas in a Sustainable World</h1>
+          <p class="article-subtitle">The case for methane as part of a transition to clean energy</p>
+
+          <div class="article-tags">
+            <span class="tag">Energy</span>
+            <span class="tag">Sustainability</span>
+            <span class="tag">Chemical Engineering</span>
+          </div>
+
+          <hr class="article-divider" />
+
+          <div class="article-content">
+
+            <h2>Make no mistake — natural gas is not "clean" energy</h2>
+
+            <p>
+              Methane combustion, like that of all hydrocarbons, releases carbon dioxide. When someone
+              says that natural gas burns "clean", what they really mean is that it burns
+              <em>completely</em> — for every molecule of methane burned, we get exactly one molecule
+              of carbon dioxide and two molecules of water. But that doesn't mean it's good for the
+              environment. Carbon dioxide from methane combustion makes up a significant fraction of
+              the USA's CO<sub>2</sub> emissions.
+            </p>
+
+            <div class="callout">
+              <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> &ensp;Key fact</div>
+              1 kg of CH<sub>4</sub> has the same global warming effect as 84 kg of CO<sub>2</sub>.
+              Methane leaks are therefore not a trivial concern.
+            </div>
+
+            <p>
+              But that doesn't automatically make natural gas bad. It is among the best-understood and
+              most energy-dense fuels we have, and engineers have been working on maximizing combustion
+              efficiency since the late 1700s. As the world shifts towards wind, solar, and hydropower,
+              a key challenge for engineers and policymakers is how to store excess capacity and how to
+              meet demand when production is low — at night, for instance, or during calm weather.
+            </p>
+
+            <h2>The Energy Storage Problem</h2>
+
+            <p>
+              The most common large-scale form of energy storage is pumped hydropower, where water is
+              pumped into an elevated reservoir during periods of surplus electricity and released through
+              turbines when demand rises. But this system has real limitations. Capital costs are massive
+              — a large impoundment dam can run well over $5 billion — and ongoing maintenance of dams
+              and spillways is costly and meticulous. Beyond cost, pumped hydro requires significant
+              elevation differences, making it unsuitable for flat regions like Florida, Minnesota, or
+              Illinois. Its round-trip efficiency of roughly 70% also dampens its attractiveness.
+            </p>
+
+            <p>
+              The other obvious candidate is batteries. While they are already used for grid stabilization
+              and operating reserves, at roughly $150/kWh they remain too expensive for true grid-scale
+              seasonal storage. Lithium and cobalt supply constraints, relatively low energy density, and
+              degradation from phenomena like dendrite formation continue to limit battery lifetimes and
+              performance. True grid reliance on battery storage is still at least a decade away.
+            </p>
+
+            <h2>Enter: The Sabatier Reaction</h2>
+
+            <p>
+              The Sabatier reaction converts CO<sub>2</sub> and H<sub>2</sub> into methane and water
+              over a nickel catalyst at elevated pressure and moderate temperature:
+            </p>
+
+            <div class="chem-equation">
+              CO<sub>2</sub> + 4H<sub>2</sub> &nbsp;→&nbsp; CH<sub>4</sub> + 2H<sub>2</sub>O
+              &emsp;&emsp; ΔH = −165 kJ/mol
+            </div>
+
+            <p>
+              At around 10 bar and 270–400°C, the reaction achieves near-complete conversion with no
+              significant side reactions in a plug-flow reactor. The process has been studied extensively
+              but rarely commercialized at scale — its most famous application is aboard the International
+              Space Station, where it is used to recycle CO<sub>2</sub> back into oxygen and water.
+            </p>
+
+            <p>
+              The key insight for energy storage is that the required hydrogen can come from
+              electrolysis — easily integrated into a solar or wind farm. When renewable electricity
+              is abundant and cheap (midday sun, windy nights), that energy is used to split water and
+              produce hydrogen. The hydrogen is then reacted with captured CO<sub>2</sub> to produce
+              methane. You are, in effect, <strong>storing clean electrical energy as a carbon-neutral
+              fuel</strong>.
+            </p>
+
+            <h2>Why Store Energy as Methane Rather Than Hydrogen?</h2>
+
+            <p>
+              Hydrogen is notoriously difficult to store and transport. It has a very low volumetric
+              energy density at ambient conditions, requires cryogenic cooling or extreme pressurization
+              for storage, and hydrogen embrittlement can degrade metal pipelines over time. Natural gas,
+              by contrast, benefits from decades of infrastructure investment. In North America alone,
+              there are hundreds of thousands of kilometres of natural gas pipelines, vast underground
+              storage reservoirs, and LNG terminals. Millions of homes already use natural gas for heating.
+            </p>
+
+            <p>
+              With a Sabatier plant near a renewable energy source or industrial CO<sub>2</sub> emitter,
+              that existing network becomes a conduit for carbon-neutral energy. Surplus BC hydroelectricity
+              or Alberta wind power could be stored as RNG and shipped via pipeline to wherever it is
+              needed — at a fraction of the cost of new battery infrastructure or new dams.
+            </p>
+
+            <h2>Is It Truly Carbon-Neutral?</h2>
+
+            <p>
+              Not perfectly. When the methane is combusted, the CO<sub>2</sub> that was originally
+              captured is re-released into the atmosphere. The cycle is carbon-neutral only if the
+              electricity used for electrolysis is itself zero-carbon and the CO<sub>2</sub> feedstock
+              comes from a biogenic or direct-air-capture source. With BC's grid, which is over 95%
+              hydroelectric, the first condition is nearly met. Waste CO<sub>2</sub> from anaerobic
+              digesters (biogas plants) satisfies the second.
+            </p>
+
+            <p>
+              Ultimately, it is not a perfect long-term solution — we should be working toward
+              carbon-negative processes. But for the <em>immediate</em> future, the Sabatier process
+              offers a pragmatic bridge: high energy density, well-understood thermodynamics and
+              materials, compatibility with existing infrastructure, and a total cycle efficiency of
+              over 80%. I hope to see it gain traction within the next five years.
+            </p>
+
+          </div><!-- /.article-content -->
+
+          <hr class="article-divider" />
+
+          <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+            <a href="writing.html" class="btn btn-outline" style="font-size:.85rem">
+              <i class="fa-solid fa-arrow-left"></i> Back to Writing
+            </a>
+            <a href="projects.html" class="btn btn-teal" style="font-size:.85rem">
+              <i class="fa-solid fa-diagram-project"></i> See the Capstone Project
+            </a>
+          </div>
+
+        </article>
+      </main>
+
+      <!-- ── Sidebar ── -->
+      <aside class="article-sidebar">
+
+        <!-- Author -->
+        <div class="sidebar-widget">
+          <div class="sidebar-widget-title">Author</div>
+          <div class="author-card">
+            <img
+              src="starter-hugo-academic-master/content/authors/admin/avatar.jpg"
+              alt="Hugo Dignoes Ricart"
+              class="author-avatar"
+              onerror="this.outerHTML='<div class=\'author-avatar-fallback\'><i class=\'fa-solid fa-user\'></i></div>'"
+            />
+            <div>
+              <div class="author-name">Hugo Dignoes Ricart</div>
+              <div class="author-role">Chemical Process Engineering, UBC</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Table of contents -->
+        <div class="sidebar-widget">
+          <div class="sidebar-widget-title">Contents</div>
+          <ul class="toc-list">
+            <li><a href="#">Natural gas is not "clean" energy</a></li>
+            <li><a href="#">The energy storage problem</a></li>
+            <li><a href="#">The Sabatier reaction</a></li>
+            <li><a href="#">Why store energy as methane?</a></li>
+            <li><a href="#">Is it truly carbon-neutral?</a></li>
+          </ul>
+        </div>
+
+        <!-- Related -->
+        <div class="sidebar-widget">
+          <div class="sidebar-widget-title">Related</div>
+
+          <a href="projects.html" class="related-link">
+            <i class="fa-solid fa-diagram-project"></i>
+            <div>
+              <div class="related-link-title">Sabatier Methanation — Capstone</div>
+              <div class="related-link-meta">Engineering design project</div>
+            </div>
+          </a>
+
+          <a href="contact.html" class="related-link">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+              <div class="related-link-title">Get in touch</div>
+              <div class="related-link-meta">Discuss energy &amp; decarbonization</div>
+            </div>
+          </a>
+        </div>
+
+      </aside>
+
+    </div><!-- /.article-wrap -->
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────────────────────────── -->
+<footer>
+  <p>&copy; 2024 Hugo Dignoes Ricart &nbsp;·&nbsp; Vancouver, BC &nbsp;·&nbsp;
+    <a href="mailto:hdignoes@gmail.com">hdignoes@gmail.com</a>
+  </p>
+</footer>
+
+</body>
+</html>

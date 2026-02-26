@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Hugo Dignoes Ricart</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ── Contact layout ── */
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    /* ── Info panel ── */
+    .contact-info {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.4rem 2.6rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .contact-info h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: .6rem;
+    }
+
+    .contact-info > p {
+      font-size: .97rem;
+      color: var(--muted);
+      line-height: 1.72;
+      margin-bottom: 2rem;
+    }
+
+    .contact-item-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.4rem;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      text-decoration: none;
+      color: inherit;
+    }
+    .contact-item:hover {
+      border-color: var(--blue-light);
+      box-shadow: var(--shadow);
+      text-decoration: none;
+    }
+
+    .contact-item-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+
+    .ci-email   { background: #ebf5fb; color: var(--blue-light); }
+    .ci-github  { background: #f0f0f0; color: #1b1f24; }
+    .ci-linkedin { background: #e8f4fc; color: #0077b5; }
+    .ci-location { background: #fdf2e9; color: #e67e22; }
+
+    .contact-item-body {}
+
+    .contact-item-label {
+      font-size: .76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--light-muted);
+      margin-bottom: .2rem;
+    }
+
+    .contact-item-value {
+      font-size: .97rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .contact-item-sub {
+      font-size: .83rem;
+      color: var(--muted);
+    }
+
+    /* ── Profile card ── */
+    .profile-card {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      border-radius: var(--radius-lg);
+      padding: 2.4rem 2rem;
+      color: #fff;
+      text-align: center;
+      box-shadow: var(--shadow);
+      margin-bottom: 1.4rem;
+    }
+
+    .profile-card-avatar {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255,255,255,.3);
+      margin: 0 auto 1.1rem;
+    }
+
+    .profile-card-avatar-fallback {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.12);
+      border: 3px solid rgba(255,255,255,.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem; color: rgba(255,255,255,.5);
+      margin: 0 auto 1.1rem;
+    }
+
+    .profile-card h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: .25rem;
+    }
+
+    .profile-card .role {
+      font-size: .88rem;
+      color: rgba(255,255,255,.7);
+      margin-bottom: .2rem;
+    }
+
+    .profile-card .org {
+      font-size: .82rem;
+      color: rgba(255,255,255,.5);
+      margin-bottom: 1.4rem;
+    }
+    .profile-card .org a { color: var(--teal); }
+
+    .profile-social {
+      display: flex;
+      justify-content: center;
+      gap: .6rem;
+    }
+
+    .profile-social a {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.2);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: .95rem;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .profile-social a:hover {
+      background: rgba(255,255,255,.22);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    /* ── Quick links card ── */
+    .quick-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.6rem 1.8rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quick-card-title {
+      font-size: .78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--teal);
+      margin-bottom: 1rem;
+    }
+
+    .quick-link {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      padding: .6rem 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--navy);
+      font-size: .92rem;
+      font-weight: 600;
+      transition: color var(--transition);
+    }
+    .quick-link:last-child { border-bottom: none; }
+    .quick-link:hover { color: var(--blue-light); text-decoration: none; }
+    .quick-link i { color: var(--teal); width: 16px; text-align: center; flex-shrink: 0; }
+
+    @media (max-width: 860px) {
+      .contact-wrap { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" style="text-decoration:none">
+      <div class="nav-brand">
+        <span class="nav-brand-name">Hugo Dignoes Ricart</span>
+        <span class="nav-brand-role">Chemical Process Engineering</span>
+      </div>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html">About</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="writing.html">Writing</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── PAGE HEADER ───────────────────────────────────────────────── -->
+<header class="page-header">
+  <div class="container">
+    <h1><i class="fa-solid fa-paper-plane" style="margin-right:.6rem;opacity:.7"></i>Contact</h1>
+    <p class="subtitle">
+      Open to research collaborations, consulting conversations, and discussions about decarbonization and green engineering.
+    </p>
+  </div>
+</header>
+
+<!-- ── CONTACT CONTENT ───────────────────────────────────────────── -->
+<section class="section" style="background: var(--bg);">
+  <div class="container">
+    <div class="contact-wrap">
+
+      <!-- Left: contact methods -->
+      <div class="contact-info">
+        <h2>Get in Touch</h2>
+        <p>
+          The best way to reach me is via email. I'm always happy to hear from other engineers,
+          researchers, and anyone working on problems at the intersection of process engineering,
+          energy systems, and decarbonization.
+        </p>
+
+        <div class="contact-item-list">
+
+          <a href="mailto:hdignoes@gmail.com" class="contact-item">
+            <div class="contact-item-icon ci-email">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="contact-item-body">
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-value">hdignoes@gmail.com</div>
+              <div class="contact-item-sub">Best way to reach me</div>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/hugo-dignoes/" target="_blank" rel="noopener" class="contact-item">
+            <div class="contact-item-icon ci-linkedin">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </div>
+            <div class="contact-item-body">
+              <div class="contact-item-label">LinkedIn</div>
+              <div class="contact-item-value">linkedin.com/in/hugo-dignoes</div>
+              <div class="contact-item-sub">Professional network</div>
+            </div>
+          </a>
+
+          <a href="https://github.com/hdignoes" target="_blank" rel="noopener" class="contact-item">
+            <div class="contact-item-icon ci-github">
+              <i class="fa-brands fa-github"></i>
+            </div>
+            <div class="contact-item-body">
+              <div class="contact-item-label">GitHub</div>
+              <div class="contact-item-value">github.com/hdignoes</div>
+              <div class="contact-item-sub">Code and personal projects</div>
+            </div>
+          </a>
+
+          <div class="contact-item" style="cursor:default;">
+            <div class="contact-item-icon ci-location">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="contact-item-body">
+              <div class="contact-item-label">Location</div>
+              <div class="contact-item-value">Vancouver, BC, Canada</div>
+              <div class="contact-item-sub">University of British Columbia</div>
+            </div>
+          </div>
+
+        </div><!-- /.contact-item-list -->
+      </div>
+
+      <!-- Right: profile + quick links -->
+      <aside>
+
+        <div class="profile-card">
+          <img
+            src="starter-hugo-academic-master/content/authors/admin/avatar.jpg"
+            alt="Hugo Dignoes Ricart"
+            class="profile-card-avatar"
+            onerror="this.outerHTML='<div class=\'profile-card-avatar-fallback\'><i class=\'fa-solid fa-user\'></i></div>'"
+          />
+          <h3>Hugo Dignoes Ricart</h3>
+          <p class="role">Chemical Process Engineering Graduate Student</p>
+          <p class="org">
+            <a href="https://www.ubc.ca/" target="_blank" rel="noopener">University of British Columbia</a>
+          </p>
+          <div class="profile-social">
+            <a href="mailto:hdignoes@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://github.com/hdignoes" target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/hugo-dignoes/" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div class="quick-card">
+          <div class="quick-card-title">Quick Links</div>
+
+          <a href="starter-hugo-academic-master/content/project/Capstone/capstonereport.pdf"
+             target="_blank" class="quick-link">
+            <i class="fa-solid fa-download"></i> Download CV / Resumé
+          </a>
+          <a href="experience.html" class="quick-link">
+            <i class="fa-solid fa-briefcase"></i> Work Experience
+          </a>
+          <a href="projects.html" class="quick-link">
+            <i class="fa-solid fa-diagram-project"></i> Projects
+          </a>
+          <a href="writing.html" class="quick-link">
+            <i class="fa-solid fa-pen-to-square"></i> Writing
+          </a>
+        </div>
+
+      </aside>
+
+    </div><!-- /.contact-wrap -->
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────────────────────────── -->
+<footer>
+  <p>&copy; 2024 Hugo Dignoes Ricart &nbsp;·&nbsp; Vancouver, BC &nbsp;·&nbsp;
+    <a href="mailto:hdignoes@gmail.com">hdignoes@gmail.com</a>
+  </p>
+</footer>
+
+</body>
+</html>

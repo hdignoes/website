@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Writing — Hugo Dignoes Ricart</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .post-list { display: flex; flex-direction: column; gap: 1.8rem; }
+
+    .post-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .post-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+    }
+
+    .post-card-img-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .post-card-img {
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      object-fit: cover;
+      transition: transform .4s ease;
+    }
+    .post-card:hover .post-card-img { transform: scale(1.04); }
+
+    .post-card-body {
+      padding: 2rem 2.2rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: .82rem;
+      color: var(--light-muted);
+      margin-bottom: .8rem;
+      flex-wrap: wrap;
+    }
+    .post-meta span { display: flex; align-items: center; gap: .35rem; }
+
+    .post-card-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: .3rem;
+      line-height: 1.3;
+    }
+    .post-card-title a { color: inherit; }
+    .post-card-title a:hover { color: var(--blue-light); text-decoration: none; }
+
+    .post-card-subtitle {
+      font-size: .95rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: .9rem;
+    }
+
+    .post-card-summary {
+      font-size: .93rem;
+      color: var(--muted);
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 1.2rem;
+    }
+
+    .post-tags { display: flex; gap: .5rem; flex-wrap: wrap; }
+
+    /* ── linked project note ── */
+    .linked-project {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      font-size: .82rem;
+      color: var(--teal);
+      margin-top: .8rem;
+      background: #e8f8f5;
+      padding: .3rem .8rem;
+      border-radius: 20px;
+      border: 1px solid #a2d9ce;
+    }
+    .linked-project a { color: inherit; font-weight: 600; }
+    .linked-project a:hover { text-decoration: underline; }
+
+    @media (max-width: 720px) {
+      .post-card { grid-template-columns: 1fr; }
+      .post-card-img { min-height: 180px; }
+      .post-card-body { padding: 1.4rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" style="text-decoration:none">
+      <div class="nav-brand">
+        <span class="nav-brand-name">Hugo Dignoes Ricart</span>
+        <span class="nav-brand-role">Chemical Process Engineering</span>
+      </div>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html">About</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="writing.html" class="active">Writing</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── PAGE HEADER ───────────────────────────────────────────────── -->
+<header class="page-header">
+  <div class="container">
+    <h1><i class="fa-solid fa-pen-to-square" style="margin-right:.6rem;opacity:.7"></i>Writing</h1>
+    <p class="subtitle">
+      Perspectives on energy transitions, sustainable engineering, and chemical process design.
+    </p>
+  </div>
+</header>
+
+<!-- ── POST LIST ─────────────────────────────────────────────────── -->
+<section class="section" style="background: var(--bg);">
+  <div class="container">
+    <div class="post-list">
+
+      <!-- Post 1 -->
+      <article class="post-card">
+        <div class="post-card-img-wrap">
+          <img
+            src="starter-hugo-academic-master/content/post/natural-gas-in-a-sustainable-world/featured.jpg"
+            alt="Biogas plant"
+            class="post-card-img"
+            onerror="this.style.background='#dce3ea';this.removeAttribute('src')"
+          />
+        </div>
+        <div class="post-card-body">
+          <div class="post-meta">
+            <span><i class="fa-solid fa-calendar-days"></i> December 13, 2020</span>
+            <span><i class="fa-regular fa-clock"></i> ~8 min read</span>
+          </div>
+
+          <h2 class="post-card-title">
+            <a href="post-natural-gas.html">Natural Gas in a Sustainable World</a>
+          </h2>
+          <p class="post-card-subtitle">The case for methane as part of a transition to clean energy</p>
+
+          <p class="post-card-summary">
+            Natural gas and natural gas infrastructure can play a key role in a country's transition to
+            clean energy, and might actually be the key to centralized renewable power storage. I make the
+            case for the Sabatier process as a bridge technology — storing solar and wind energy as
+            carbon-neutral methane using existing pipeline infrastructure.
+          </p>
+
+          <div class="post-tags">
+            <span class="tag">Energy</span>
+            <span class="tag">Sustainability</span>
+            <span class="tag">Chemical Engineering</span>
+          </div>
+
+          <div class="linked-project">
+            <i class="fa-solid fa-link"></i>
+            Related project: <a href="projects.html">Sabatier Methanation Capstone</a>
+          </div>
+        </div>
+      </article>
+
+    </div><!-- /.post-list -->
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────────────────────────── -->
+<footer>
+  <p>&copy; 2024 Hugo Dignoes Ricart &nbsp;·&nbsp; Vancouver, BC &nbsp;·&nbsp;
+    <a href="mailto:hdignoes@gmail.com">hdignoes@gmail.com</a>
+  </p>
+</footer>
+
+</body>
+</html>

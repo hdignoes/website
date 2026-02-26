@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Hugo Dignoes Ricart</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ── Project card layout ── */
+    .project-feature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-bottom: 3rem;
+    }
+
+    .project-feature-img {
+      width: 100%;
+      height: 100%;
+      min-height: 340px;
+      object-fit: cover;
+    }
+
+    .project-feature-body {
+      padding: 2.4rem 2.6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .project-feature-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: .9rem;
+    }
+
+    .project-feature-summary {
+      font-size: .97rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 1.4rem;
+    }
+
+    .project-feature-summary p { margin-bottom: .8rem; }
+    .project-feature-summary p:last-child { margin-bottom: 0; }
+
+    .project-links {
+      display: flex;
+      gap: .8rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── Stats grid ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin: 1.4rem 0;
+    }
+
+    .stat-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.2rem;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--navy);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: .78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    /* ── Process steps ── */
+    .process-steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin: 1rem 0;
+    }
+
+    .step-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: .3rem .85rem;
+      font-size: .82rem;
+      color: var(--navy);
+      font-weight: 500;
+    }
+    .step-chip i { color: var(--teal); font-size: .8rem; }
+
+    /* ── Breakeven list ── */
+    .breakeven-list { list-style: none; margin: .6rem 0 .8rem; }
+    .breakeven-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .7rem;
+      font-size: .93rem;
+      color: var(--muted);
+      margin-bottom: .5rem;
+      line-height: 1.55;
+    }
+    .breakeven-list li .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: #fff;
+      font-size: .72rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: .15rem;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 760px) {
+      .project-feature { grid-template-columns: 1fr; }
+      .project-feature-img { min-height: 220px; }
+      .project-feature-body { padding: 1.6rem 1.4rem; }
+      .project-feature-title { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" style="text-decoration:none">
+      <div class="nav-brand">
+        <span class="nav-brand-name">Hugo Dignoes Ricart</span>
+        <span class="nav-brand-role">Chemical Process Engineering</span>
+      </div>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html">About</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="writing.html">Writing</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── PAGE HEADER ───────────────────────────────────────────────── -->
+<header class="page-header">
+  <div class="container">
+    <h1><i class="fa-solid fa-diagram-project" style="margin-right:.6rem;opacity:.7"></i>Projects</h1>
+    <p class="subtitle">
+      Engineering design, process simulation, and technoeconomic analysis projects.
+    </p>
+  </div>
+</header>
+
+<!-- ── CAPSTONE PROJECT ───────────────────────────────────────────── -->
+<section class="section" style="background: var(--bg);">
+  <div class="container">
+
+    <div class="project-feature">
+      <img
+        src="starter-hugo-academic-master/content/project/Capstone/featured.PNG"
+        alt="Capstone process flow diagram — Sabatier methanation plant"
+        class="project-feature-img"
+        onerror="this.style.background='#dce3ea';this.style.display='flex';this.alt=''"
+      />
+      <div class="project-feature-body">
+        <div class="project-tags">
+          <span class="tag">Energy</span>
+          <span class="tag">Green Engineering</span>
+          <span class="tag">Capstone</span>
+        </div>
+        <h2 class="project-feature-title">
+          Methanation of Carbon Dioxide Using Hydrogen from Water Electrolysis
+        </h2>
+        <div class="project-feature-summary">
+          <p>
+            Capstone design project (Group P9), sponsored by FortisBC. Our task was to assess and design
+            a large-scale Sabatier process that converts waste CO<sub>2</sub> from an existing BC biogas
+            plant into pipeline-ready renewable natural gas (RNG).
+          </p>
+        </div>
+        <div class="project-links">
+          <a href="starter-hugo-academic-master/content/project/Capstone/capstonereport.pdf"
+             target="_blank" class="btn btn-primary">
+            <i class="fa-solid fa-file-pdf"></i> Full Report (PDF)
+          </a>
+          <a href="https://apsc-chbe.sites.olt.ubc.ca/files/2021/04/P9-Poster.pdf"
+             target="_blank" rel="noopener" class="btn btn-outline">
+            <i class="fa-solid fa-image"></i> Project Poster
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Detailed write-up -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.4rem 2.8rem;box-shadow:var(--shadow-sm);">
+
+      <h3 style="font-size:1.2rem;font-weight:800;color:var(--navy);margin-bottom:1rem;">Project Overview</h3>
+      <p style="font-size:.97rem;color:var(--muted);line-height:1.78;margin-bottom:1rem;">
+        Carbon dioxide emissions are largely responsible for the ongoing climate crisis. FortisBC asked
+        our group to investigate a pathway for reducing environmental impact without significantly
+        curtailing natural gas output. The Sabatier reaction — a much-studied but rarely industrialized
+        process — converts CO<sub>2</sub> and H<sub>2</sub> into methane:
+      </p>
+
+      <p style="font-family:monospace;font-size:.97rem;background:var(--bg);padding:.85rem 1.2rem;border-radius:8px;margin-bottom:1.2rem;border:1px solid var(--border);">
+        CO<sub>2</sub> + 4H<sub>2</sub> &nbsp;→&nbsp; CH<sub>4</sub> + 2H<sub>2</sub>O &emsp; ΔH = −165 kJ/mol
+      </p>
+
+      <p style="font-size:.97rem;color:var(--muted);line-height:1.78;margin-bottom:1.6rem;">
+        The reaction achieves over 99% conversion at elevated pressure over a nickel catalyst. Our
+        process was scaled to handle ~1,400 kg/hr of biogas from FortisBC's Abbotsford, BC facility,
+        which already has anaerobic digesters feeding natural gas into the city grid — significantly
+        reducing infrastructure costs compared to a greenfield installation.
+      </p>
+
+      <!-- Process steps -->
+      <h3 style="font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:.8rem;">Process Train</h3>
+      <div class="process-steps">
+        <div class="step-chip"><i class="fa-solid fa-1"></i> Biogas Feed</div>
+        <div class="step-chip"><i class="fa-solid fa-2"></i> TEG Dehydration</div>
+        <div class="step-chip"><i class="fa-solid fa-3"></i> AC Desulfurization</div>
+        <div class="step-chip"><i class="fa-solid fa-4"></i> Pressure-Swing Adsorption</div>
+        <div class="step-chip"><i class="fa-solid fa-5"></i> PEM Electrolysis (H₂)</div>
+        <div class="step-chip"><i class="fa-solid fa-6"></i> Sabatier Reactor</div>
+        <div class="step-chip"><i class="fa-solid fa-7"></i> Post-Treatment</div>
+        <div class="step-chip"><i class="fa-solid fa-8"></i> Pipeline Injection</div>
+      </div>
+
+      <p style="font-size:.92rem;color:var(--muted);line-height:1.7;margin-bottom:1.8rem;margin-top:.6rem;">
+        Biogas first undergoes dehydration (triethylene glycol contactor), followed by desulfurization
+        using activated carbon adsorption. The sweetened gas then passes through a PSA unit: the RNG
+        fraction goes directly to the pipeline, while the CO<sub>2</sub> stream proceeds to the Sabatier
+        reactor. Hydrogen is generated on-site via PEM electrolysis — effectively green hydrogen, since
+        BC electricity is >95% hydroelectric. The reactor outlet is post-treated to meet FortisBC product
+        specifications before pipeline injection.
+      </p>
+
+      <!-- Stats -->
+      <h3 style="font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:.9rem;">Key Figures</h3>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <span class="stat-value">1,400 kg/hr</span>
+          <span class="stat-label">Biogas Feed Rate</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value">$36.7 M</span>
+          <span class="stat-label">CAPEX</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value">$6 M/yr</span>
+          <span class="stat-label">OPEX</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value">$12.8 M</span>
+          <span class="stat-label">CleanBC Fund Eligible</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value">&gt;99%</span>
+          <span class="stat-label">Reactor Conversion</span>
+        </div>
+      </div>
+
+      <!-- Breakeven -->
+      <h3 style="font-size:1.1rem;font-weight:700;color:var(--navy);margin:.6rem 0 .7rem;">Break-Even Scenarios</h3>
+      <p style="font-size:.93rem;color:var(--muted);margin-bottom:.6rem;line-height:1.7;">
+        The base case projects a cumulative loss of ~$77 M over 20 years of operation. However, three
+        credible break-even pathways were identified:
+      </p>
+      <ul class="breakeven-list">
+        <li>
+          <span class="num">1</span>
+          <span>A biogas feed of <strong>&gt;3,000 kg/hr</strong> — a 2.1× increase in current plant capacity.</span>
+        </li>
+        <li>
+          <span class="num">2</span>
+          <span>RNG selling price rising to <strong>$0.91/kg</strong> (current market: $0.66/kg).</span>
+        </li>
+        <li>
+          <span class="num">3</span>
+          <span>Upgrading by-product oxygen from the PEM electrolyzer to <strong>medical-grade</strong>, which commands a significantly higher price per unit volume.</span>
+        </li>
+      </ul>
+    </div><!-- /.detail card -->
+
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────────────────────────── -->
+<footer>
+  <p>&copy; 2024 Hugo Dignoes Ricart &nbsp;·&nbsp; Vancouver, BC &nbsp;·&nbsp;
+    <a href="mailto:hdignoes@gmail.com">hdignoes@gmail.com</a>
+  </p>
+</footer>
+
+</body>
+</html>

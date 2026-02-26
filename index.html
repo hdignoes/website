@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hugo Dignoes Ricart — Chemical Process Engineering</title>
+  <meta name="description" content="Personal academic portfolio of Hugo Dignoes Ricart, Chemical Process Engineering graduate student at the University of British Columbia." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ── About-page specific ── */
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #0d1f31 0%, #12263a 40%, #1a3a5c 80%, #1f618d 100%);
+      color: #fff;
+      padding: 5.5rem 0 4.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    /* Sidebar column */
+    .hero-aside {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .avatar {
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255,255,255,.25);
+      box-shadow: 0 6px 28px rgba(0,0,0,.4);
+    }
+
+    .avatar-fallback {
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.1);
+      border: 4px solid rgba(255,255,255,.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      color: rgba(255,255,255,.5);
+    }
+
+    .social-bar {
+      display: flex;
+      gap: .6rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .social-bar a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.1);
+      color: #fff;
+      font-size: 1rem;
+      border: 1px solid rgba(255,255,255,.2);
+      transition: background var(--transition), transform var(--transition);
+    }
+    .social-bar a:hover {
+      background: rgba(255,255,255,.22);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    .cv-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      background: var(--teal);
+      color: #fff;
+      padding: .6rem 1.4rem;
+      border-radius: 30px;
+      font-size: .88rem;
+      font-weight: 700;
+      box-shadow: 0 3px 12px rgba(26,188,156,.4);
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      white-space: nowrap;
+    }
+    .cv-btn:hover {
+      background: var(--teal-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 18px rgba(26,188,156,.5);
+      text-decoration: none;
+      color: #fff;
+    }
+
+    /* Main column */
+    .hero-main h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      line-height: 1.1;
+      margin-bottom: .4rem;
+    }
+
+    .hero-role {
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: rgba(255,255,255,.78);
+      margin-bottom: .3rem;
+    }
+
+    .hero-affil {
+      font-size: .92rem;
+      color: rgba(255,255,255,.5);
+      margin-bottom: 1.8rem;
+    }
+    .hero-affil a { color: var(--teal); }
+    .hero-affil a:hover { text-decoration: underline; }
+
+    .hero-bio {
+      font-size: 1.02rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,.9);
+      max-width: 680px;
+      margin-bottom: 1rem;
+    }
+
+    .hero-bio + .hero-bio { margin-top: 0; margin-bottom: 0; }
+
+    /* Info cards row */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.4rem;
+      margin-top: 2rem;
+    }
+
+    .info-card {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: var(--radius);
+      padding: 1.3rem 1.5rem;
+    }
+
+    .info-card-title {
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      color: var(--teal);
+      margin-bottom: .9rem;
+      font-weight: 700;
+    }
+
+    /* Interests */
+    .interest-list { list-style: none; }
+    .interest-list li {
+      font-size: .95rem;
+      color: rgba(255,255,255,.85);
+      padding: .3rem 0;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+    .interest-list li::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      flex-shrink: 0;
+    }
+
+    /* Education */
+    .edu-list { list-style: none; }
+    .edu-list li {
+      padding: .45rem 0;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .edu-list li:last-child { border-bottom: none; }
+    .edu-degree {
+      font-size: .93rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.9);
+      display: block;
+    }
+    .edu-meta {
+      font-size: .8rem;
+      color: rgba(255,255,255,.48);
+    }
+
+    /* ── Quick-nav cards below hero ── */
+    .quicknav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .qn-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.6rem 1.4rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+    }
+    .qn-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+      border-color: var(--blue-light);
+      text-decoration: none;
+    }
+
+    .qn-icon {
+      font-size: 1.7rem;
+      color: var(--blue-light);
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+
+    .qn-label {
+      font-size: .82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--teal);
+      margin-bottom: .3rem;
+    }
+
+    .qn-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: .25rem;
+    }
+
+    .qn-desc {
+      font-size: .85rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── Skills strip ── */
+    .skills-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.8rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .skill-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+
+    .skill-icon {
+      font-size: 2.5rem;
+      color: var(--blue-light);
+      margin-bottom: 1rem;
+    }
+
+    .skill-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: .55rem;
+    }
+
+    .skill-card p {
+      font-size: .91rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── Accomplishments ── */
+    .accolade-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.3rem;
+    }
+
+    .accolade-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--teal);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.6rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .accolade-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+    }
+
+    .accolade-date {
+      font-size: .78rem;
+      color: var(--light-muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: .5rem;
+    }
+
+    .accolade-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: .3rem;
+      line-height: 1.35;
+    }
+
+    .accolade-org {
+      font-size: .87rem;
+      color: var(--blue-light);
+      margin-bottom: .55rem;
+    }
+    .accolade-org a { color: inherit; }
+
+    .accolade-desc {
+      font-size: .9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* responsive */
+    @media (max-width: 760px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-aside { margin: 0 auto; }
+      .hero-main h1 { font-size: 2.1rem; }
+      .info-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" style="text-decoration:none">
+      <div class="nav-brand">
+        <span class="nav-brand-name">Hugo Dignoes Ricart</span>
+        <span class="nav-brand-role">Chemical Process Engineering</span>
+      </div>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html" class="active">About</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="writing.html">Writing</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- Sidebar -->
+      <aside class="hero-aside">
+        <img
+          src="starter-hugo-academic-master/content/authors/admin/avatar.jpg"
+          alt="Hugo Dignoes Ricart"
+          class="avatar"
+          onerror="this.outerHTML='<div class=\'avatar-fallback\'><i class=\'fa-solid fa-user\'></i></div>'"
+        />
+        <div class="social-bar">
+          <a href="mailto:hdignoes@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+          <a href="https://github.com/hdignoes" target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/hugo-dignoes/" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <a href="starter-hugo-academic-master/content/project/Capstone/capstonereport.pdf" target="_blank" class="cv-btn">
+          <i class="fa-solid fa-download"></i> Download CV
+        </a>
+      </aside>
+
+      <!-- Main -->
+      <div class="hero-main">
+        <h1>Hugo Dignoes Ricart</h1>
+        <p class="hero-role">Chemical Process Engineering Graduate Student</p>
+        <p class="hero-affil">
+          <i class="fa-solid fa-building-columns"></i>
+          <a href="https://www.ubc.ca/" target="_blank" rel="noopener">University of British Columbia</a>
+          &ensp;·&ensp; Vancouver, BC, Canada
+        </p>
+
+        <p class="hero-bio">
+          I am a master's student at the University of British Columbia. My thesis focused on novel
+          catalytic dehydrogenation processes for propylene production; I am now working on a
+          transdisciplinary decarbonization project before graduating in May 2024. I completed my BASc
+          at UBC as well — they just can't get rid of me! I majored in chemical process engineering and
+          minored in analytical chemistry, with a particular interest in systems modelling and the human
+          side of engineering.
+        </p>
+        <p class="hero-bio" style="margin-top:.9rem">
+          In my free time I enjoy skiing, gardening, and small personal projects — like building a chess
+          bot or setting up small-scale vertical farms in my basement.
+        </p>
+
+        <div class="info-grid">
+          <div class="info-card">
+            <div class="info-card-title"><i class="fa-solid fa-lightbulb"></i> &ensp;Research Interests</div>
+            <ul class="interest-list">
+              <li>Energy &amp; Waste Recovery</li>
+              <li>Green Engineering</li>
+              <li>Catalysis</li>
+              <li>Computational Modelling</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <div class="info-card-title"><i class="fa-solid fa-graduation-cap"></i> &ensp;Education</div>
+            <ul class="edu-list">
+              <li>
+                <span class="edu-degree">MEng, Chemical Engineering</span>
+                <span class="edu-meta">University of British Columbia · 2024</span>
+              </li>
+              <li>
+                <span class="edu-degree">BASc, Chemical Engineering</span>
+                <span class="edu-meta">University of British Columbia · 2021</span>
+              </li>
+              <li>
+                <span class="edu-degree">IB Diploma</span>
+                <span class="edu-meta">International School of Geneva · 2016</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── QUICK-NAV CARDS ───────────────────────────────────────────── -->
+<section class="section" style="background: var(--bg);">
+  <div class="container">
+    <div class="quicknav">
+
+      <a href="experience.html" class="qn-card">
+        <div class="qn-icon"><i class="fa-solid fa-briefcase"></i></div>
+        <div>
+          <div class="qn-label">Career</div>
+          <div class="qn-title">Experience</div>
+          <div class="qn-desc">9 roles spanning research, consulting, product management, and student leadership.</div>
+        </div>
+      </a>
+
+      <a href="projects.html" class="qn-card">
+        <div class="qn-icon"><i class="fa-solid fa-diagram-project"></i></div>
+        <div>
+          <div class="qn-label">Portfolio</div>
+          <div class="qn-title">Projects</div>
+          <div class="qn-desc">Capstone design and simulation of a novel Sabatier methanation process.</div>
+        </div>
+      </a>
+
+      <a href="writing.html" class="qn-card">
+        <div class="qn-icon"><i class="fa-solid fa-pen-to-square"></i></div>
+        <div>
+          <div class="qn-label">Blog</div>
+          <div class="qn-title">Writing</div>
+          <div class="qn-desc">Perspectives on energy transitions, green chemistry, and sustainable engineering.</div>
+        </div>
+      </a>
+
+      <a href="contact.html" class="qn-card">
+        <div class="qn-icon"><i class="fa-solid fa-paper-plane"></i></div>
+        <div>
+          <div class="qn-label">Get in touch</div>
+          <div class="qn-title">Contact</div>
+          <div class="qn-desc">Open to research collaborations, consulting inquiries, and conversations about decarbonization.</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── SKILLS ────────────────────────────────────────────────────── -->
+<section class="section" style="background: var(--surface); border-top: 1px solid var(--border);">
+  <div class="container">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-strip">
+
+      <div class="skill-card">
+        <div class="skill-icon"><i class="fa-solid fa-flask-vial"></i></div>
+        <h3>Aspen Plus / HYSYS</h3>
+        <p>Process modelling, sizing, and optimization using AspenTech software — including Aspen Plus, HYSYS, Adsorption, and Energy Analyzer.</p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><i class="fa-brands fa-python"></i></div>
+        <h3>Python</h3>
+        <p>Data processing, model building, and functional programming for engineering applications. Some experience with object-oriented design.</p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><i class="fa-solid fa-language"></i></div>
+        <h3>Languages</h3>
+        <p>Native in <strong>English</strong> and <strong>Spanish</strong>. Professionally proficient in <strong>French</strong> and <strong>Catalan</strong>.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── ACCOMPLISHMENTS ───────────────────────────────────────────── -->
+<section class="section" style="background: var(--bg);">
+  <div class="container">
+    <h2 class="section-title">Awards &amp; Certificates</h2>
+    <div class="accolade-row">
+
+      <div class="accolade-card">
+        <div class="accolade-date"><i class="fa-solid fa-trophy" style="margin-right:.4rem;color:var(--teal)"></i>April 2021</div>
+        <div class="accolade-title">Design &amp; Innovation Day Award — Chemical Process Engineering</div>
+        <div class="accolade-org">
+          <a href="https://chbe.ubc.ca/2020w-capstone-design-projects/" target="_blank" rel="noopener">University of British Columbia</a>
+        </div>
+        <div class="accolade-desc">
+          Capstone project (Group P9) selected by industry experts for its rigor and depth in the design
+          and simulation of a novel Sabatier methanation process sponsored by FortisBC.
+        </div>
+      </div>
+
+      <div class="accolade-card">
+        <div class="accolade-date"><i class="fa-solid fa-certificate" style="margin-right:.4rem;color:var(--teal)"></i>January 2018</div>
+        <div class="accolade-title">Learn Ruby — Certificate of Completion</div>
+        <div class="accolade-org">
+          <a href="https://www.codecademy.com/profiles/Haddit/certificates/1c05e0382bc5681c824c4cbe85c126fd" target="_blank" rel="noopener">Codecademy</a>
+        </div>
+        <div class="accolade-desc">Ruby fundamentals and Object-Oriented Programming.</div>
+      </div>
+
+      <div class="accolade-card">
+        <div class="accolade-date"><i class="fa-solid fa-shield-halved" style="margin-right:.4rem;color:var(--teal)"></i>January 2018</div>
+        <div class="accolade-title">Chemical &amp; Biological Safety and WHMIS</div>
+        <div class="accolade-org">University of British Columbia</div>
+        <div class="accolade-desc">Laboratory safety and Workplace Hazardous Materials Information System certification.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────────────────────────── -->
+<footer>
+  <p>&copy; 2024 Hugo Dignoes Ricart &nbsp;·&nbsp; Vancouver, BC &nbsp;·&nbsp;
+    <a href="mailto:hdignoes@gmail.com">hdignoes@gmail.com</a>
+  </p>
+</footer>
+
+</body>
+</html>
