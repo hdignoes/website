@@ -6,6 +6,21 @@
 
 const POSTS = [
   {
+    title:    "Building a Digital Fleet Checkout System for a University Sailing Club",
+    subtitle: "How I replaced a paper logbook with an NFC kiosk, a FastAPI backend, and a lot of Kotlin",
+    date:     "February 2025",
+    readTime: "~10 min read",
+    tags:     ["Software", "Android", "Python", "Sailing Club", "Engineering"],
+    summary:  "As president of UBC Sailing Club — Canada's largest not-for-profit sailing club — " +
+              "I built a full-stack digital checkout system to replace our paper logbook. This post " +
+              "covers the architecture, the key design decisions, and what I learned building " +
+              "a kiosk app with NFC card scanning from scratch.",
+    image:    "assets/project-digital-checkout.jpg",
+    imageAlt: "UBCSC Digital Checkout kiosk app on tablet",
+    url:      "post-digital-checkout.html",
+    relatedProject: { label: "UBCSC Digital Checkout", url: "projects.html" },
+  },
+  {
     title:    "Natural Gas in a Sustainable World",
     subtitle: "The case for methane as part of a transition to clean energy",
     date:     "December 13, 2020",

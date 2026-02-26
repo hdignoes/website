@@ -7,6 +7,20 @@
 
 const PROJECTS = [
   {
+    title:    "UBCSC Digital Checkout — Fleet Management Kiosk",
+    tags:     ["Python", "FastAPI", "Android", "Kotlin", "SQLite", "NFC", "Sailing Club"],
+    summary:  "A full-stack fleet checkout system built for UBC Sailing Club — Canada's largest " +
+              "not-for-profit sailing club. An Android kiosk app (Kotlin/Compose) with NFC card " +
+              "scanning connects to a FastAPI backend to manage boat checkouts, verify member " +
+              "certifications, and log all activity to Google Sheets in real time.",
+    image:    "assets/project-digital-checkout.jpg",
+    imageAlt: "Digital Checkout kiosk app — fleet management for UBC Sailing Club",
+    links: [
+      { label: "GitHub", icon: "fa-brands fa-github", url: "https://github.com/ubcsailingclub/digital_checkout", style: "primary" },
+      { label: "Read the Post",  icon: "fa-solid fa-pen-to-square", url: "post-digital-checkout.html", style: "outline" },
+    ],
+  },
+  {
     title:    "Methanation of Carbon Dioxide Using Hydrogen from Water Electrolysis",
     tags:     ["Energy", "Green Engineering", "Capstone"],
     summary:  "Capstone design project (Group P9), sponsored by FortisBC. Assessed and designed a " +
