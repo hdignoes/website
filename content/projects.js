@@ -17,7 +17,6 @@ const PROJECTS = [
     imageAlt: "Digital Checkout kiosk app — fleet management for UBC Sailing Club",
     links: [
       { label: "GitHub", icon: "fa-brands fa-github", url: "https://github.com/ubcsailingclub/digital_checkout", style: "primary" },
-      { label: "Read the Post",  icon: "fa-solid fa-pen-to-square", url: "post-digital-checkout.html", style: "outline" },
     ],
   },
   {

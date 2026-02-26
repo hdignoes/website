@@ -17,7 +17,7 @@ const POSTS = [
               "a kiosk app with NFC card scanning from scratch.",
     image:    "assets/project-digital-checkout.jpg",
     imageAlt: "UBCSC Digital Checkout kiosk app on tablet",
-    url:      "post-digital-checkout.html",
+    url:      null,
     relatedProject: { label: "UBCSC Digital Checkout", url: "projects.html" },
   },
   {
