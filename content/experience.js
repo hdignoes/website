@@ -23,6 +23,33 @@ const EXPERIENCE = [
   },
 
   {
+    title:      "President",
+    company:    "UBC Sailing Club",
+    companyUrl: "",
+    location:   "Vancouver, BC",
+    dateStart:  "Oct 2024",
+    dateEnd:    null,
+    bullets: [
+      "Provide executive leadership for Canada's largest not-for-profit sailing club, guiding operations and long-term planning, and managing over $400k in assets.",
+      "Oversee budgeting, volunteer coordination, and act as a liaison between the university, student union, and sailing community.",
+      "Advance initiatives related to accessibility, safety, and long-term sustainability of club programs and assets.",
+    ],
+  },
+
+  {
+    title:      "Volunteer Rescue Responder",
+    company:    "Jericho Rescue",
+    companyUrl: "",
+    location:   "Vancouver, BC",
+    dateStart:  "Apr 2025",
+    dateEnd:    null,
+    bullets: [
+      "Support marine safety and emergency response operations in Burrard Inlet as part of a volunteer rescue team.",
+      "Assist in responding to on-water incidents and operate in time-sensitive situations requiring teamwork, situational awareness, and sound judgment.",
+    ],
+  },
+
+  {
     title:      "Mitacs Intern — Knowledge Mobilization",
     company:    "UBC & Clear Seas",
     companyUrl: "https://www.clearseas.org/",
