@@ -6,6 +6,15 @@
 
 const ACCOMPLISHMENTS = [
   {
+    icon:        "fa-solid fa-award",
+    date:        "2025",
+    title:       "Graduate Award in Population Health and Engineering",
+    org:         "University of British Columbia",
+    orgUrl:      "",
+    description: "Awarded in recognition of graduate research at the intersection of population health " +
+                 "and engineering, supporting work on community air quality and low-cost sensing.",
+  },
+  {
     icon:        "fa-solid fa-trophy",
     date:        "April 2021",
     title:       "Design & Innovation Day Award — Chemical Process Engineering",
@@ -15,19 +24,11 @@ const ACCOMPLISHMENTS = [
                  "in the design and simulation of a novel Sabatier methanation process sponsored by FortisBC.",
   },
   {
-    icon:        "fa-solid fa-certificate",
-    date:        "January 2018",
-    title:       "Learn Ruby — Certificate of Completion",
-    org:         "Codecademy",
-    orgUrl:      "https://www.codecademy.com/profiles/Haddit/certificates/1c05e0382bc5681c824c4cbe85c126fd",
-    description: "Ruby fundamentals and Object-Oriented Programming.",
-  },
-  {
-    icon:        "fa-solid fa-shield-halved",
-    date:        "January 2018",
-    title:       "Chemical & Biological Safety and WHMIS",
+    icon:        "fa-solid fa-star",
+    date:        "2016",
+    title:       "Outstanding International Student",
     org:         "University of British Columbia",
     orgUrl:      "",
-    description: "Laboratory safety and Workplace Hazardous Materials Information System certification.",
+    description: "Recognized as an outstanding incoming international student upon admission to UBC.",
   },
 ];

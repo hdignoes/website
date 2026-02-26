@@ -342,6 +342,63 @@
       line-height: 1.6;
     }
 
+    /* ── Publications ── */
+    .pub-subheading {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .pub-subheading i { color: var(--teal); }
+
+    .pub-list {
+      list-style: none;
+      counter-reset: pub-counter;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: .9rem;
+    }
+
+    .pub-item {
+      counter-increment: pub-counter;
+      font-size: .92rem;
+      line-height: 1.7;
+      color: var(--muted);
+      padding-left: 2rem;
+      position: relative;
+    }
+    .pub-item::before {
+      content: counter(pub-counter) ".";
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      color: var(--teal);
+    }
+
+    .pub-authors { color: var(--navy); }
+    .pub-title   { color: var(--blue-light); font-style: normal; }
+    a.pub-title:hover { text-decoration: underline; }
+    .pub-venue   { color: var(--muted); }
+
+    .pub-type-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      font-size: .74rem;
+      font-weight: 700;
+      background: #e8f4fd;
+      color: var(--blue-light);
+      border: 1px solid #b3d9f5;
+      border-radius: 20px;
+      padding: .15rem .6rem;
+      margin-right: .4rem;
+      vertical-align: middle;
+    }
+
     /* responsive */
     @media (max-width: 760px) {
       .hero-grid { grid-template-columns: 1fr; }
@@ -444,9 +501,18 @@
 <!-- ── ACCOMPLISHMENTS ───────────────────────────────────────────── -->
 <section class="section" style="background: var(--bg);">
   <div class="container">
-    <h2 class="section-title">Awards &amp; Certificates</h2>
+    <h2 class="section-title">Awards &amp; Honours</h2>
     <!-- rendered from content/accomplishments.js -->
     <div class="accolade-row" id="accolade-row"></div>
+  </div>
+</section>
+
+<!-- ── PUBLICATIONS & PRESENTATIONS ─────────────────────────────── -->
+<section class="section" style="background: var(--surface);">
+  <div class="container">
+    <h2 class="section-title">Publications &amp; Presentations</h2>
+    <!-- rendered from content/publications.js -->
+    <div id="pub-section"></div>
   </div>
 </section>
 
@@ -455,6 +521,7 @@
 
 <!-- ── CONTENT DATA ──────────────────────────────────────────────── -->
 <script src="content/profile.js"></script>
+<script src="content/publications.js"></script>
 <script src="content/education.js"></script>
 <script src="content/interests.js"></script>
 <script src="content/skills.js"></script>
@@ -529,6 +596,35 @@
         : a.org}</div>
       <div class="accolade-desc">${a.description}</div>
     </div>`).join('');
+
+  // ── Publications & Presentations ───────────────────────────────
+  const paperItems = PUBLICATIONS.papers.map(p => `
+    <li class="pub-item">
+      <span class="pub-authors">${p.authors}</span>
+      (${p.year}).
+      ${p.doi
+        ? `<a href="${p.doi}" target="_blank" rel="noopener" class="pub-title">${p.title}</a>`
+        : `<span class="pub-title">${p.title}</span>`}
+      <em class="pub-venue">${p.journal}</em>.
+    </li>`).join('');
+
+  const typeIcon = { Oral: 'fa-microphone', Poster: 'fa-image', Presentation: 'fa-person-chalkboard' };
+  const presItems = PUBLICATIONS.presentations.map(p => `
+    <li class="pub-item">
+      <span class="pub-type-badge"><i class="fa-solid ${typeIcon[p.type] || 'fa-presentation-screen'}"></i> ${p.type}</span>
+      <span class="pub-authors">${p.authors}</span>
+      (${p.year}).
+      ${p.url
+        ? `<a href="${p.url}" target="_blank" rel="noopener" class="pub-title"><em>${p.title}</em></a>`
+        : `<em class="pub-title">${p.title}</em>`}
+      ${p.venue}, ${p.location}.
+    </li>`).join('');
+
+  document.getElementById('pub-section').innerHTML = `
+    <h3 class="pub-subheading"><i class="fa-solid fa-book-open"></i> Peer-Reviewed Publications</h3>
+    <ol class="pub-list">${paperItems}</ol>
+    <h3 class="pub-subheading" style="margin-top:2rem"><i class="fa-solid fa-person-chalkboard"></i> Conference Presentations</h3>
+    <ol class="pub-list">${presItems}</ol>`;
 
   // ── Footer ─────────────────────────────────────────────────────
   document.getElementById('site-footer').innerHTML =

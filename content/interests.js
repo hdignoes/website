@@ -3,8 +3,10 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 const INTERESTS = [
-  "Energy & Waste Recovery",
-  "Green Engineering",
-  "Catalysis",
-  "Computational Modelling",
+  "Low-Cost Air Quality Sensing",
+  "Sensor Calibration & Uncertainty",
+  "Air Pollution & Community Health",
+  "Environmental Monitoring",
+  "Reactive Transport & Chemical Kinetics",
+  "Decision Support for Sustainability",
 ];
