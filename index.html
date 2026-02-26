@@ -377,80 +377,11 @@
   <div class="container">
     <div class="hero-grid">
 
-      <!-- Sidebar -->
-      <aside class="hero-aside">
-        <img
-          src="assets/profile_pic.jpg"
-          alt="Hugo Dignoes Ricart"
-          class="avatar"
-          onerror="this.outerHTML='<div class=\'avatar-fallback\'><i class=\'fa-solid fa-user\'></i></div>'"
-        />
-        <div class="social-bar">
-          <a href="mailto:hdignoes@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
-          <a href="https://github.com/hdignoes" target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/hugo-dignoes/" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-        </div>
-        <a href="starter-hugo-academic-master/content/project/Capstone/capstonereport.pdf" target="_blank" class="cv-btn">
-          <i class="fa-solid fa-download"></i> Download CV
-        </a>
-      </aside>
+      <!-- Sidebar — rendered from content/profile.js -->
+      <aside class="hero-aside" id="hero-aside"></aside>
 
-      <!-- Main -->
-      <div class="hero-main">
-        <h1>Hugo Dignoes Ricart</h1>
-        <p class="hero-role">PhD Student in Chemical Engineering</p>
-        <p class="hero-affil">
-          <i class="fa-solid fa-building-columns"></i>
-          <a href="https://www.ubc.ca/" target="_blank" rel="noopener">University of British Columbia</a>
-          &ensp;·&ensp; Vancouver, BC, Canada
-        </p>
-
-        <p class="hero-bio">
-          I am a PhD student in Chemical Engineering at the University of British Columbia. My MEng
-          thesis focused on novel catalytic dehydrogenation processes for propylene production, and I
-          continue that research thread as part of my doctoral work. I completed both my MEng and BASc
-          at UBC — they just can't get rid of me! I majored in chemical process engineering and minored
-          in analytical chemistry, with a particular interest in systems modelling and the human side of
-          engineering.
-        </p>
-        <p class="hero-bio" style="margin-top:.9rem">
-          In my free time I enjoy skiing, gardening, and small personal projects — like building a chess
-          bot or setting up small-scale vertical farms in my basement.
-        </p>
-
-        <div class="info-grid">
-          <div class="info-card">
-            <div class="info-card-title"><i class="fa-solid fa-lightbulb"></i> &ensp;Research Interests</div>
-            <ul class="interest-list">
-              <li>Energy &amp; Waste Recovery</li>
-              <li>Green Engineering</li>
-              <li>Catalysis</li>
-              <li>Computational Modelling</li>
-            </ul>
-          </div>
-          <div class="info-card">
-            <div class="info-card-title"><i class="fa-solid fa-graduation-cap"></i> &ensp;Education</div>
-            <ul class="edu-list">
-              <li>
-                <span class="edu-degree">PhD, Chemical Engineering</span>
-                <span class="edu-meta">University of British Columbia · In Progress</span>
-              </li>
-              <li>
-                <span class="edu-degree">MEng, Chemical Engineering</span>
-                <span class="edu-meta">University of British Columbia · 2024</span>
-              </li>
-              <li>
-                <span class="edu-degree">BASc, Chemical Engineering</span>
-                <span class="edu-meta">University of British Columbia · 2021</span>
-              </li>
-              <li>
-                <span class="edu-degree">IB Diploma</span>
-                <span class="edu-meta">International School of Geneva · 2016</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <!-- Main — rendered from content/profile.js, interests.js, education.js -->
+      <div class="hero-main" id="hero-main"></div>
 
     </div>
   </div>
@@ -505,27 +436,8 @@
 <section class="section" style="background: var(--surface); border-top: 1px solid var(--border);">
   <div class="container">
     <h2 class="section-title">Skills</h2>
-    <div class="skills-strip">
-
-      <div class="skill-card">
-        <div class="skill-icon"><i class="fa-solid fa-flask-vial"></i></div>
-        <h3>Aspen Plus / HYSYS</h3>
-        <p>Process modelling, sizing, and optimization using AspenTech software — including Aspen Plus, HYSYS, Adsorption, and Energy Analyzer.</p>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-icon"><i class="fa-brands fa-python"></i></div>
-        <h3>Python</h3>
-        <p>Data processing, model building, and functional programming for engineering applications. Some experience with object-oriented design.</p>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-icon"><i class="fa-solid fa-language"></i></div>
-        <h3>Languages</h3>
-        <p>Native in <strong>English</strong> and <strong>Spanish</strong>. Professionally proficient in <strong>French</strong> and <strong>Catalan</strong>.</p>
-      </div>
-
-    </div>
+    <!-- rendered from content/skills.js -->
+    <div class="skills-strip" id="skills-grid"></div>
   </div>
 </section>
 
@@ -533,46 +445,97 @@
 <section class="section" style="background: var(--bg);">
   <div class="container">
     <h2 class="section-title">Awards &amp; Certificates</h2>
-    <div class="accolade-row">
-
-      <div class="accolade-card">
-        <div class="accolade-date"><i class="fa-solid fa-trophy" style="margin-right:.4rem;color:var(--teal)"></i>April 2021</div>
-        <div class="accolade-title">Design &amp; Innovation Day Award — Chemical Process Engineering</div>
-        <div class="accolade-org">
-          <a href="https://chbe.ubc.ca/2020w-capstone-design-projects/" target="_blank" rel="noopener">University of British Columbia</a>
-        </div>
-        <div class="accolade-desc">
-          Capstone project (Group P9) selected by industry experts for its rigor and depth in the design
-          and simulation of a novel Sabatier methanation process sponsored by FortisBC.
-        </div>
-      </div>
-
-      <div class="accolade-card">
-        <div class="accolade-date"><i class="fa-solid fa-certificate" style="margin-right:.4rem;color:var(--teal)"></i>January 2018</div>
-        <div class="accolade-title">Learn Ruby — Certificate of Completion</div>
-        <div class="accolade-org">
-          <a href="https://www.codecademy.com/profiles/Haddit/certificates/1c05e0382bc5681c824c4cbe85c126fd" target="_blank" rel="noopener">Codecademy</a>
-        </div>
-        <div class="accolade-desc">Ruby fundamentals and Object-Oriented Programming.</div>
-      </div>
-
-      <div class="accolade-card">
-        <div class="accolade-date"><i class="fa-solid fa-shield-halved" style="margin-right:.4rem;color:var(--teal)"></i>January 2018</div>
-        <div class="accolade-title">Chemical &amp; Biological Safety and WHMIS</div>
-        <div class="accolade-org">University of British Columbia</div>
-        <div class="accolade-desc">Laboratory safety and Workplace Hazardous Materials Information System certification.</div>
-      </div>
-
-    </div>
+    <!-- rendered from content/accomplishments.js -->
+    <div class="accolade-row" id="accolade-row"></div>
   </div>
 </section>
 
 <!-- ── FOOTER ────────────────────────────────────────────────────── -->
-<footer>
-  <p>&copy; 2024 Hugo Dignoes Ricart &nbsp;·&nbsp; Vancouver, BC &nbsp;·&nbsp;
-    <a href="mailto:hdignoes@gmail.com">hdignoes@gmail.com</a>
-  </p>
-</footer>
+<footer id="site-footer"></footer>
+
+<!-- ── CONTENT DATA ──────────────────────────────────────────────── -->
+<script src="content/profile.js"></script>
+<script src="content/education.js"></script>
+<script src="content/interests.js"></script>
+<script src="content/skills.js"></script>
+<script src="content/accomplishments.js"></script>
+
+<!-- ── RENDER ────────────────────────────────────────────────────── -->
+<script>
+(function () {
+  // ── Sidebar ────────────────────────────────────────────────────
+  document.getElementById('hero-aside').innerHTML = `
+    <img src="${PROFILE.avatarPath}" alt="${PROFILE.name}" class="avatar"
+         onerror="this.outerHTML='<div class=\\'avatar-fallback\\'><i class=\\'fa-solid fa-user\\'></i></div>'" />
+    <div class="social-bar">
+      <a href="mailto:${PROFILE.email}" title="Email"><i class="fa-solid fa-envelope"></i></a>
+      <a href="${PROFILE.github.url}" target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="${PROFILE.linkedin.url}" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+    <a href="${PROFILE.cvPath}" target="_blank" class="cv-btn">
+      <i class="fa-solid fa-download"></i> Download CV
+    </a>`;
+
+  // ── Hero main ──────────────────────────────────────────────────
+  const bioParagraphs = PROFILE.bio.map((p, i) =>
+    `<p class="hero-bio"${i > 0 ? ' style="margin-top:.9rem"' : ''}>${p}</p>`
+  ).join('');
+
+  const interestItems = INTERESTS.map(i => `<li>${i}</li>`).join('');
+
+  const eduItems = EDUCATION.map(e => `
+    <li>
+      <span class="edu-degree">${e.degree}</span>
+      <span class="edu-meta">${e.institution} · ${e.year}</span>
+    </li>`).join('');
+
+  document.getElementById('hero-main').innerHTML = `
+    <h1>${PROFILE.name}</h1>
+    <p class="hero-role">${PROFILE.role}</p>
+    <p class="hero-affil">
+      <i class="fa-solid fa-building-columns"></i>
+      <a href="${PROFILE.orgUrl}" target="_blank" rel="noopener">${PROFILE.org}</a>
+      &ensp;·&ensp; ${PROFILE.location}
+    </p>
+    ${bioParagraphs}
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-card-title"><i class="fa-solid fa-lightbulb"></i> &ensp;Research Interests</div>
+        <ul class="interest-list">${interestItems}</ul>
+      </div>
+      <div class="info-card">
+        <div class="info-card-title"><i class="fa-solid fa-graduation-cap"></i> &ensp;Education</div>
+        <ul class="edu-list">${eduItems}</ul>
+      </div>
+    </div>`;
+
+  // ── Skills ─────────────────────────────────────────────────────
+  document.getElementById('skills-grid').innerHTML = SKILLS.map(s => `
+    <div class="skill-card">
+      <div class="skill-icon"><i class="${s.icon}"></i></div>
+      <h3>${s.name}</h3>
+      <p>${s.description}</p>
+    </div>`).join('');
+
+  // ── Accomplishments ────────────────────────────────────────────
+  document.getElementById('accolade-row').innerHTML = ACCOMPLISHMENTS.map(a => `
+    <div class="accolade-card">
+      <div class="accolade-date">
+        <i class="${a.icon}" style="margin-right:.4rem;color:var(--teal)"></i>${a.date}
+      </div>
+      <div class="accolade-title">${a.title}</div>
+      <div class="accolade-org">${a.orgUrl
+        ? `<a href="${a.orgUrl}" target="_blank" rel="noopener">${a.org}</a>`
+        : a.org}</div>
+      <div class="accolade-desc">${a.description}</div>
+    </div>`).join('');
+
+  // ── Footer ─────────────────────────────────────────────────────
+  document.getElementById('site-footer').innerHTML =
+    `<p>&copy; ${new Date().getFullYear()} ${PROFILE.name} &nbsp;·&nbsp; ${PROFILE.location} &nbsp;·&nbsp;
+      <a href="mailto:${PROFILE.email}">${PROFILE.email}</a></p>`;
+})();
+</script>
 
 </body>
 </html>
