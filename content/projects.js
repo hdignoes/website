@@ -29,7 +29,7 @@ const PROJECTS = [
     image:    "starter-hugo-academic-master/content/project/Capstone/featured.PNG",
     imageAlt: "Capstone process flow diagram — Sabatier methanation plant",
     links: [
-      { label: "Full Report (PDF)", icon: "fa-solid fa-file-pdf", src: "assets/P9 - Capstone Final Report.pdf", style: "primary" },
+      { label: "Full Report (PDF)", icon: "fa-solid fa-file-pdf", url: "assets/capstone_report", style: "primary" },
       { label: "Project Poster",    icon: "fa-solid fa-image",    url: "https://apsc-chbe.sites.olt.ubc.ca/files/2021/04/P9-Poster.pdf",                                style: "outline" },
     ],
   },
