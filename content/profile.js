@@ -4,7 +4,7 @@
 
 const PROFILE = {
   name:     "Hugo Dignoes Ricart",
-  role:     "PhD Student in Chemical Engineering",
+  role:     "PhD Student in Mechanical Engineering",
   org:      "University of British Columbia",
   orgUrl:   "https://ireach.mech.ubc.ca/",
   location: "Vancouver, BC, Canada",

@@ -233,7 +233,7 @@
   <div class="container">
     <h1><i class="fa-solid fa-paper-plane" style="margin-right:.6rem;opacity:.7"></i>Contact</h1>
     <p class="subtitle">
-      Open to research collaborations, consulting conversations, and discussions about decarbonization and green engineering.
+      Open to research collaborations and discussions about air quality, low-cost sensor networks, and environmental engineering.
     </p>
   </div>
 </header>
@@ -247,9 +247,9 @@
       <div class="contact-info">
         <h2>Get in Touch</h2>
         <p>
-          The best way to reach me is via email. I'm always happy to hear from other engineers,
-          researchers, and anyone working on problems at the intersection of process engineering,
-          energy systems, and decarbonization.
+          The best way to reach me is via email. I'm always happy to hear from other researchers,
+          engineers, and anyone working on problems at the intersection of air quality, environmental
+          sensing, and Mechanical Engineering.
         </p>
 
         <!-- rendered from content/profile.js -->
@@ -287,11 +287,71 @@
 </section>
 
 <!-- ── FOOTER ────────────────────────────────────────────────────── -->
-<footer>
-  <p>&copy; 2024 Hugo Dignoes Ricart &nbsp;·&nbsp; Vancouver, BC &nbsp;·&nbsp;
-    <a href="mailto:hugo.dignoes@ubc.ca">hugo.dignoes@ubc.ca</a>
-  </p>
-</footer>
+<footer id="site-footer"></footer>
+
+<!-- ── CONTENT DATA ──────────────────────────────────────────────── -->
+<script src="content/profile.js"></script>
+
+<!-- ── RENDER ────────────────────────────────────────────────────── -->
+<script>
+(function () {
+  // ── Contact items ───────────────────────────────────────────────
+  document.getElementById('contact-items').innerHTML = `
+    <a href="mailto:${PROFILE.email}" class="contact-item">
+      <div class="contact-item-icon ci-email"><i class="fa-solid fa-envelope"></i></div>
+      <div class="contact-item-body">
+        <div class="contact-item-label">Email</div>
+        <div class="contact-item-value">${PROFILE.email}</div>
+        <div class="contact-item-sub">Best way to reach me</div>
+      </div>
+    </a>
+    <a href="${PROFILE.github.url}" target="_blank" rel="noopener" class="contact-item">
+      <div class="contact-item-icon ci-github"><i class="fa-brands fa-github"></i></div>
+      <div class="contact-item-body">
+        <div class="contact-item-label">GitHub</div>
+        <div class="contact-item-value">${PROFILE.github.handle}</div>
+        <div class="contact-item-sub">Code &amp; projects</div>
+      </div>
+    </a>
+    <a href="${PROFILE.linkedin.url}" target="_blank" rel="noopener" class="contact-item">
+      <div class="contact-item-icon ci-linkedin"><i class="fa-brands fa-linkedin-in"></i></div>
+      <div class="contact-item-body">
+        <div class="contact-item-label">LinkedIn</div>
+        <div class="contact-item-value">${PROFILE.linkedin.handle}</div>
+        <div class="contact-item-sub">Professional network</div>
+      </div>
+    </a>
+    <div class="contact-item">
+      <div class="contact-item-icon ci-location"><i class="fa-solid fa-location-dot"></i></div>
+      <div class="contact-item-body">
+        <div class="contact-item-label">Location</div>
+        <div class="contact-item-value">${PROFILE.location}</div>
+        <div class="contact-item-sub">${PROFILE.org}</div>
+      </div>
+    </div>`;
+
+  // ── Profile card ────────────────────────────────────────────────
+  document.getElementById('profile-card').innerHTML = `
+    <img src="${PROFILE.avatarPath}" alt="${PROFILE.name}" class="profile-card-avatar"
+         onerror="this.outerHTML='<div class=\\'profile-card-avatar-fallback\\'><i class=\\'fa-solid fa-user\\'></i></div>'" />
+    <h3>${PROFILE.name}</h3>
+    <p class="role">${PROFILE.role}</p>
+    <p class="org"><a href="${PROFILE.orgUrl}" target="_blank" rel="noopener">${PROFILE.org}</a></p>
+    <div class="profile-social">
+      <a href="mailto:${PROFILE.email}" title="Email"><i class="fa-solid fa-envelope"></i></a>
+      <a href="${PROFILE.github.url}" target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="${PROFILE.linkedin.url}" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>`;
+
+  // ── CV quick link ───────────────────────────────────────────────
+  document.getElementById('cv-quick-link').href = PROFILE.cvPath;
+
+  // ── Footer ─────────────────────────────────────────────────────
+  document.getElementById('site-footer').innerHTML =
+    `<p>&copy; ${new Date().getFullYear()} ${PROFILE.name} &nbsp;·&nbsp; ${PROFILE.location} &nbsp;·&nbsp;
+      <a href="mailto:${PROFILE.email}">${PROFILE.email}</a></p>`;
+})();
+</script>
 
 </body>
 </html>
