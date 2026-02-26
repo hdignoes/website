@@ -34,7 +34,7 @@ const PUBLICATIONS = {
       title:   "Making Sense of Air Sensors: A Three-Pronged Approach to Publicly Sharing Air Quality Data.",
       venue:   "Air Sensors International Conference (ASIC) 2026",
       location:"Los Angeles, California",
-      type:    "Oral",
+      type:    "Presentations",
       url:     null,
     },
     {
