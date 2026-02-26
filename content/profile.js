@@ -9,7 +9,7 @@ const PROFILE = {
   orgUrl:   "https://ireach.mech.ubc.ca/",
   location: "Vancouver, BC, Canada",
 
-  email:    "hdignoes@gmail.com",
+  email:    "hugo.dignoes@ubc.ca",
   github:   { url: "https://github.com/hdignoes",              handle: "github.com/hdignoes" },
   linkedin: { url: "https://www.linkedin.com/in/hugo-dignoes/", handle: "hugo-dignoes" },
 

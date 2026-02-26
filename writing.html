@@ -140,58 +140,53 @@
 <section class="section" style="background: var(--bg);">
   <div class="container">
     <div class="post-list">
-
-      <!-- Post 1 -->
-      <article class="post-card">
-        <div class="post-card-img-wrap">
-          <img
-            src="starter-hugo-academic-master/content/post/natural-gas-in-a-sustainable-world/featured.jpg"
-            alt="Biogas plant"
-            class="post-card-img"
-            onerror="this.style.background='#dce3ea';this.removeAttribute('src')"
-          />
-        </div>
-        <div class="post-card-body">
-          <div class="post-meta">
-            <span><i class="fa-solid fa-calendar-days"></i> December 13, 2020</span>
-            <span><i class="fa-regular fa-clock"></i> ~8 min read</span>
-          </div>
-
-          <h2 class="post-card-title">
-            <a href="post-natural-gas.html">Natural Gas in a Sustainable World</a>
-          </h2>
-          <p class="post-card-subtitle">The case for methane as part of a transition to clean energy</p>
-
-          <p class="post-card-summary">
-            Natural gas and natural gas infrastructure can play a key role in a country's transition to
-            clean energy, and might actually be the key to centralized renewable power storage. I make the
-            case for the Sabatier process as a bridge technology — storing solar and wind energy as
-            carbon-neutral methane using existing pipeline infrastructure.
-          </p>
-
-          <div class="post-tags">
-            <span class="tag">Energy</span>
-            <span class="tag">Sustainability</span>
-            <span class="tag">Chemical Engineering</span>
-          </div>
-
-          <div class="linked-project">
-            <i class="fa-solid fa-link"></i>
-            Related project: <a href="projects.html">Sabatier Methanation Capstone</a>
-          </div>
-        </div>
-      </article>
-
-    </div><!-- /.post-list -->
+    <!-- rendered from content/posts.js -->
+    <div class="post-list" id="post-list"></div>
   </div>
 </section>
 
 <!-- ── FOOTER ────────────────────────────────────────────────────── -->
-<footer>
-  <p>&copy; 2024 Hugo Dignoes Ricart &nbsp;·&nbsp; Vancouver, BC &nbsp;·&nbsp;
-    <a href="mailto:hdignoes@gmail.com">hdignoes@gmail.com</a>
-  </p>
-</footer>
+<footer id="site-footer"></footer>
+
+<!-- ── CONTENT DATA ──────────────────────────────────────────────── -->
+<script src="content/profile.js"></script>
+<script src="content/posts.js"></script>
+
+<!-- ── RENDER ────────────────────────────────────────────────────── -->
+<script>
+(function () {
+  // ── Post list ──────────────────────────────────────────────────
+  document.getElementById('post-list').innerHTML = POSTS.map(p => `
+    <article class="post-card">
+      <div class="post-card-img-wrap">
+        <img src="${p.image}" alt="${p.imageAlt}" class="post-card-img"
+             onerror="this.style.background='#dce3ea';this.removeAttribute('src')" />
+      </div>
+      <div class="post-card-body">
+        <div class="post-meta">
+          <span><i class="fa-solid fa-calendar-days"></i> ${p.date}</span>
+          <span><i class="fa-regular fa-clock"></i> ${p.readTime}</span>
+        </div>
+        <h2 class="post-card-title"><a href="${p.url}">${p.title}</a></h2>
+        <p class="post-card-subtitle">${p.subtitle}</p>
+        <p class="post-card-summary">${p.summary}</p>
+        <div class="post-tags">
+          ${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+        </div>
+        ${p.relatedProject ? `
+          <div class="linked-project">
+            <i class="fa-solid fa-link"></i>
+            Related project: <a href="${p.relatedProject.url}">${p.relatedProject.label}</a>
+          </div>` : ''}
+      </div>
+    </article>`).join('');
+
+  // ── Footer ─────────────────────────────────────────────────────
+  document.getElementById('site-footer').innerHTML =
+    `<p>&copy; ${new Date().getFullYear()} ${PROFILE.name} &nbsp;·&nbsp; ${PROFILE.location} &nbsp;·&nbsp;
+      <a href="mailto:${PROFILE.email}">${PROFILE.email}</a></p>`;
+})();
+</script>
 
 </body>
 </html>

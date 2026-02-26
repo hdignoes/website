@@ -474,11 +474,14 @@
 </section>
 
 <!-- ── FOOTER ────────────────────────────────────────────────────── -->
-<footer>
-  <p>&copy; 2024 Hugo Dignoes Ricart &nbsp;·&nbsp; Vancouver, BC &nbsp;·&nbsp;
-    <a href="mailto:hdignoes@gmail.com">hdignoes@gmail.com</a>
-  </p>
-</footer>
+<footer id="site-footer"></footer>
+
+<script src="content/profile.js"></script>
+<script>
+  document.getElementById('site-footer').innerHTML =
+    `<p>&copy; ${new Date().getFullYear()} ${PROFILE.name} &nbsp;·&nbsp; ${PROFILE.location} &nbsp;·&nbsp;
+      <a href="mailto:${PROFILE.email}">${PROFILE.email}</a></p>`;
+</script>
 
 </body>
 </html>

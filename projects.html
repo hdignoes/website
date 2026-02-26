@@ -186,41 +186,8 @@
 <section class="section" style="background: var(--bg);">
   <div class="container">
 
-    <div class="project-feature">
-      <img
-        src="starter-hugo-academic-master/content/project/Capstone/featured.PNG"
-        alt="Capstone process flow diagram — Sabatier methanation plant"
-        class="project-feature-img"
-        onerror="this.style.background='#dce3ea';this.style.display='flex';this.alt=''"
-      />
-      <div class="project-feature-body">
-        <div class="project-tags">
-          <span class="tag">Energy</span>
-          <span class="tag">Green Engineering</span>
-          <span class="tag">Capstone</span>
-        </div>
-        <h2 class="project-feature-title">
-          Methanation of Carbon Dioxide Using Hydrogen from Water Electrolysis
-        </h2>
-        <div class="project-feature-summary">
-          <p>
-            Capstone design project (Group P9), sponsored by FortisBC. Our task was to assess and design
-            a large-scale Sabatier process that converts waste CO<sub>2</sub> from an existing BC biogas
-            plant into pipeline-ready renewable natural gas (RNG).
-          </p>
-        </div>
-        <div class="project-links">
-          <a href="starter-hugo-academic-master/content/project/Capstone/capstonereport.pdf"
-             target="_blank" class="btn btn-primary">
-            <i class="fa-solid fa-file-pdf"></i> Full Report (PDF)
-          </a>
-          <a href="https://apsc-chbe.sites.olt.ubc.ca/files/2021/04/P9-Poster.pdf"
-             target="_blank" rel="noopener" class="btn btn-outline">
-            <i class="fa-solid fa-image"></i> Project Poster
-          </a>
-        </div>
-      </div>
-    </div>
+    <!-- rendered from content/projects.js -->
+    <div id="projects-cards"></div>
 
     <!-- Detailed write-up -->
     <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.4rem 2.8rem;box-shadow:var(--shadow-sm);">
@@ -317,11 +284,42 @@
 </section>
 
 <!-- ── FOOTER ────────────────────────────────────────────────────── -->
-<footer>
-  <p>&copy; 2024 Hugo Dignoes Ricart &nbsp;·&nbsp; Vancouver, BC &nbsp;·&nbsp;
-    <a href="mailto:hdignoes@gmail.com">hdignoes@gmail.com</a>
-  </p>
-</footer>
+<footer id="site-footer"></footer>
+
+<!-- ── CONTENT DATA ──────────────────────────────────────────────── -->
+<script src="content/profile.js"></script>
+<script src="content/projects.js"></script>
+
+<!-- ── RENDER ────────────────────────────────────────────────────── -->
+<script>
+(function () {
+  // ── Project cards (title, tags, summary, links) ────────────────
+  document.getElementById('projects-cards').innerHTML = PROJECTS.map(p => {
+    const tags  = p.tags.map(t => `<span class="tag">${t}</span>`).join('');
+    const links = p.links.map(l =>
+      `<a href="${l.url}" target="_blank" rel="noopener" class="btn btn-${l.style}">
+        <i class="${l.icon}"></i> ${l.label}
+       </a>`
+    ).join('');
+    return `
+      <div class="project-feature" style="margin-bottom:2rem">
+        <img src="${p.image}" alt="${p.imageAlt}" class="project-feature-img"
+             onerror="this.style.background='#dce3ea';this.removeAttribute('src')" />
+        <div class="project-feature-body">
+          <div class="project-tags">${tags}</div>
+          <h2 class="project-feature-title">${p.title}</h2>
+          <div class="project-feature-summary"><p>${p.summary}</p></div>
+          <div class="project-links">${links}</div>
+        </div>
+      </div>`;
+  }).join('');
+
+  // ── Footer ─────────────────────────────────────────────────────
+  document.getElementById('site-footer').innerHTML =
+    `<p>&copy; ${new Date().getFullYear()} ${PROFILE.name} &nbsp;·&nbsp; ${PROFILE.location} &nbsp;·&nbsp;
+      <a href="mailto:${PROFILE.email}">${PROFILE.email}</a></p>`;
+})();
+</script>
 
 </body>
 </html>
