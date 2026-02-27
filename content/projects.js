@@ -22,10 +22,7 @@ const PROJECTS = [
   {
     title:    "Methanation of Carbon Dioxide Using Hydrogen from Water Electrolysis",
     tags:     ["Energy", "Green Engineering", "Capstone"],
-    summary:  "Capstone design project (Group P9), sponsored by FortisBC. Assessed and designed a " +
-              "large-scale Sabatier process converting waste CO₂ from a BC biogas plant into " +
-              "pipeline-ready renewable natural gas. CAPEX: $36.7 M · OPEX: $6 M/yr · " +
-              "CleanBC Fund eligible: up to $12.8 M.",
+    summary:  "Capstone design project (Group P9), sponsored by FortisBC. Assessed and designed a large-scale Sabatier process to upcycle waste biogas into pipeline-ready natural gas.\nProject was selected by industry leaders to receive the Design and Innovation Day Award.",
     image:    "assets/capstone_img.PNG",
     imageAlt: "Capstone process flow diagram — Sabatier methanation plant",
     links: [
