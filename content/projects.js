@@ -26,7 +26,7 @@ const PROJECTS = [
               "large-scale Sabatier process converting waste CO₂ from a BC biogas plant into " +
               "pipeline-ready renewable natural gas. CAPEX: $36.7 M · OPEX: $6 M/yr · " +
               "CleanBC Fund eligible: up to $12.8 M.",
-    image:    "starter-hugo-academic-master/content/project/Capstone/featured.PNG",
+    image:    "assets/capstone_img.PNG",
     imageAlt: "Capstone process flow diagram — Sabatier methanation plant",
     links: [
       { label: "Full Report (PDF)", icon: "fa-solid fa-file-pdf", url: "assets/capstone_report.pdf", style: "primary" },
