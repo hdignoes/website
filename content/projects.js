@@ -9,11 +9,11 @@ const PROJECTS = [
   {
     title:    "UBCSC Digital Checkout — Fleet Management Kiosk",
     tags:     ["Python", "FastAPI", "Android", "Kotlin", "SQLite", "NFC", "Sailing Club"],
-    summary:  "A full-stack fleet checkout system built for UBC Sailing Club — Canada's largest " +
+    summary:  "A full-stack fleet checkout system built for UBC Sailing Club, Canada's largest " +
               "not-for-profit sailing club. An Android kiosk app (Kotlin/Compose) with NFC card " +
               "scanning connects to a FastAPI backend to manage boat checkouts, verify member " +
               "certifications, and log all activity to Google Sheets in real time.",
-    image:    "assets/project-digital-checkout.jpg",
+    image:    "assets/checkout_img.jpeg",
     imageAlt: "Digital Checkout kiosk app — fleet management for UBC Sailing Club",
     links: [
       { label: "GitHub", icon: "fa-brands fa-github", url: "https://github.com/ubcsailingclub/digital_checkout", style: "primary" },
