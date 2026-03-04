@@ -16,7 +16,7 @@ const EXPERIENCE = [
     dateStart:  "Sept 2024",
     dateEnd:    null,
     bullets: [
-      "Conduct research on air quality in community spaces (libraries, recreation centres, places of worship), with a focus on measurement, interpretation, and public communication.",
+      "Conduct research on air quality in community spaces (libraries, recreation centres, etc.), with a focus on measurement, interpretation, and public communication.",
       "Develop and apply machine-learning calibration approaches for low-cost air quality sensors measuring multiple pollutants.",
       "Design data processing and dissemination workflows for near-real-time communication of air quality information through a public-facing dashboard and third-party chatbot platform.",
     ],
@@ -30,9 +30,10 @@ const EXPERIENCE = [
     dateStart:  "Oct 2024",
     dateEnd:    null,
     bullets: [
-      "Provide executive leadership for Canada's largest not-for-profit sailing club, guiding operations and long-term planning, and managing over $400k in assets.",
-      "Oversee budgeting, volunteer coordination, and act as a liaison between the university, student union, and sailing community.",
-      "Advance initiatives related to accessibility, safety, and long-term sustainability of club programs and assets.",
+      "Providing executive leadership for Canada's largest not-for-profit sailing club, guiding operations and long-term planning, and managing over $400k in assets.",
+      "Overseeing budgeting, volunteer coordination, and acting as a liaison between the university, student union, and sailing community.",
+      "Advancing initiatives related to accessibility, safety, and long-term sustainability of club programs and assets.",
+      "Upgraded technology within the club, including completing the design of a digital checkout system (Kotlin, Python, SQL), and a Discord bot connected with our membership management platform (Python)."
     ],
   },
 
