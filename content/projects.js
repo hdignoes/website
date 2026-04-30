@@ -8,7 +8,7 @@
 const PROJECTS = [
   {
     title:    "Community Clean Air Spaces (CCAS) Study Dashboard",
-    tags:     ["JavaScript", "Python", "R", "Leaflet", "HTML/CSS", "Air Quality", "UBC"],
+    tags:     ["JavaScript", "Python", "R", "HTML/CSS", "Air Quality", "PhD"],
     summary:  "A real-time air quality monitoring dashboard developed during my PhD at UBC, in collaboration with Vancouver Coastal Health. " +
               "Part of the Community Cleaner Air Spaces (CCAS) Study, which deploys ~20 low-cost sensor pairs across BC to monitor outdoor and indoor air quality. " +
               "The frontend (helloaqdashboard.ca) displays live sensor data via an interactive Leaflet map, pollutant time-series graphs (PM2.5, AQHI, O\u2083, NO\u2082, CO\u2082), " +
@@ -23,8 +23,8 @@ const PROJECTS = [
     ],
   },
   {
-    title:    "UBCSC Digital Checkout — Fleet Management Kiosk",
-    tags:     ["Python", "FastAPI", "Android", "Kotlin", "SQLite", "NFC", "Sailing Club"],
+    title:    "UBCSC Digital Checkout — Fleet Digital Checkout",
+    tags:     ["Python", "FastAPI", "Android", "Kotlin", "SQLite"],
     summary:  "A full-stack fleet checkout system built for UBC Sailing Club, Canada's largest " +
               "not-for-profit sailing club. An Android kiosk app (Kotlin/Compose) with NFC card " +
               "scanning connects to a FastAPI & Python backend to manage boat checkouts, verify member " +
