@@ -51,7 +51,7 @@
       <li><a href="index.html">About</a></li>
       <li><a href="experience.html" class="active">Experience</a></li>
       <li><a href="projects.html">Projects</a></li>
-      <li><a href="blog.html">Blog</a></li>
+
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
@@ -81,16 +81,19 @@
 <footer id="site-footer"></footer>
 
 <!-- ── CONTENT DATA ──────────────────────────────────────────────── -->
-<script src="content/profile.js"></script>
-<script src="content/experience.js"></script>
+<script src="content/profile.js?v=2"></script>
+<script src="content/experience.js?v=2"></script>
 
 <!-- ── RENDER ────────────────────────────────────────────────────── -->
 <script>
 (function () {
   // ── Timeline ───────────────────────────────────────────────────
-  document.getElementById('timeline').innerHTML = EXPERIENCE.map(e => {
+  const renderItem = e => {
     const isCurrent   = e.dateEnd === null;
     const dateDisplay = isCurrent ? `${e.dateStart} – Present` : `${e.dateStart} – ${e.dateEnd}`;
+    const companyLink = e.companyUrl
+      ? `<a href="${e.companyUrl}" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" style="font-size:.75em;margin-right:.3rem"></i>${e.company}</a>`
+      : `<span>${e.company}</span>`;
     return `
       <div class="timeline-item">
         <div class="timeline-dot"></div>
@@ -102,19 +105,32 @@
             </div>
             <span class="timeline-date">${dateDisplay}</span>
           </div>
-          <div class="timeline-company">
-            <a href="${e.companyUrl}" target="_blank" rel="noopener">
-              <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:.75em;margin-right:.3rem"></i>
-              ${e.company}
-            </a>
-          </div>
+          <div class="timeline-company">${companyLink}</div>
           ${e.location ? `<div class="timeline-location"><i class="fa-solid fa-location-dot"></i>${e.location}</div>` : ''}
           <div class="timeline-desc">
             <ul>${e.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
           </div>
         </div>
       </div>`;
+  };
+
+  const groupLabels = { research: 'Research & Academic', leadership: 'Leadership & Volunteer' };
+  const groupOrder  = ['research', 'leadership'];
+
+  const html = groupOrder.map(g => {
+    const all = EXPERIENCE.filter(e => e.group === g);
+    if (!all.length) return '';
+    const sorted = [
+      ...all.filter(e => e.dateEnd === null),
+      ...all.filter(e => e.dateEnd !== null),
+    ];
+    return `<div class="year-group">
+      <div class="year-label">${groupLabels[g]}</div>
+      ${sorted.map(renderItem).join('')}
+    </div>`;
   }).join('');
+
+  document.getElementById('timeline').innerHTML = html;
 
   // ── Footer ─────────────────────────────────────────────────────
   document.getElementById('site-footer').innerHTML =

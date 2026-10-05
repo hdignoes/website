@@ -383,6 +383,7 @@
     .pub-title   { color: var(--blue-light); font-style: normal; }
     a.pub-title:hover { text-decoration: underline; }
     .pub-venue   { color: var(--muted); }
+    .pub-also    { display: block; color: var(--muted); font-size: 0.85em; margin-top: 0.15em; }
 
     .pub-type-badge {
       display: inline-flex;
@@ -423,7 +424,7 @@
       <li><a href="index.html" class="active">About</a></li>
       <li><a href="experience.html">Experience</a></li>
       <li><a href="projects.html">Projects</a></li>
-      <li><a href="blog.html">Blog</a></li>
+
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
@@ -467,14 +468,6 @@
         </div>
       </a>
 
-      <a href="blog.html" class="qn-card">
-        <div class="qn-icon"><i class="fa-solid fa-pen-to-square"></i></div>
-        <div>
-          <div class="qn-label">Blog</div>
-          <div class="qn-title">Blog</div>
-          <div class="qn-desc">Ramblings.</div>
-        </div>
-      </a>
 
       <a href="contact.html" class="qn-card">
         <div class="qn-icon"><i class="fa-solid fa-paper-plane"></i></div>
@@ -520,8 +513,8 @@
 <footer id="site-footer"></footer>
 
 <!-- ── CONTENT DATA ──────────────────────────────────────────────── -->
-<script src="content/profile.js"></script>
-<script src="content/publications.js"></script>
+<script src="content/profile.js?v=2"></script>
+<script src="content/publications.js?v=2"></script>
 <script src="content/education.js"></script>
 <script src="content/interests.js"></script>
 <script src="content/skills.js"></script>
@@ -538,6 +531,7 @@
       <a href="mailto:${PROFILE.email}" title="Email"><i class="fa-solid fa-envelope"></i></a>
       <a href="${PROFILE.github.url}" target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github"></i></a>
       <a href="${PROFILE.linkedin.url}" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="${PROFILE.scholar.url}" target="_blank" rel="noopener" title="Google Scholar"><i class="fa-brands fa-google-scholar"></i></a>
     </div>
     <a href="${PROFILE.cvPath}" target="_blank" class="cv-btn">
       <i class="fa-solid fa-download"></i> Download CV
@@ -618,6 +612,7 @@
         ? `<a href="${p.url}" target="_blank" rel="noopener" class="pub-title"><em>${p.title}</em></a>`
         : `<em class="pub-title">${p.title}</em>`}
       ${p.venue}, ${p.location}.
+      ${p.also ? `<span class="pub-also">${p.also}</span>` : ''}
     </li>`).join('');
 
   document.getElementById('pub-section').innerHTML = `

@@ -13,6 +13,7 @@ const PROFILE = {
   email:    "hugo.dignoes@ubc.ca",
   github:   { url: "https://github.com/hdignoes",              handle: "github.com/hdignoes" },
   linkedin: { url: "https://www.linkedin.com/in/hugo-dignoes/", handle: "hugo-dignoes" },
+  scholar:  { url: "https://scholar.google.com/citations?user=6hqe69kAAAAJ&hl=en", handle: "Google Scholar" },
 
   // Paths relative to website/
   avatarPath: "assets/profile_pic.jpg",

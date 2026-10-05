@@ -222,7 +222,7 @@
       <li><a href="index.html">About</a></li>
       <li><a href="experience.html">Experience</a></li>
       <li><a href="projects.html">Projects</a></li>
-      <li><a href="blog.html">Blog</a></li>
+
       <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
   </div>
@@ -275,9 +275,7 @@
           <a href="projects.html" class="quick-link">
             <i class="fa-solid fa-diagram-project"></i> Projects
           </a>
-          <a href="blog.html" class="quick-link">
-            <i class="fa-solid fa-pen-to-square"></i> Blog
-          </a>
+
         </div>
 
       </aside>
@@ -290,7 +288,7 @@
 <footer id="site-footer"></footer>
 
 <!-- ── CONTENT DATA ──────────────────────────────────────────────── -->
-<script src="content/profile.js"></script>
+<script src="content/profile.js?v=2"></script>
 
 <!-- ── RENDER ────────────────────────────────────────────────────── -->
 <script>
@@ -321,6 +319,14 @@
         <div class="contact-item-sub">Professional network</div>
       </div>
     </a>
+    <a href="${PROFILE.scholar.url}" target="_blank" rel="noopener" class="contact-item">
+      <div class="contact-item-icon ci-scholar"><i class="fa-brands fa-google-scholar"></i></div>
+      <div class="contact-item-body">
+        <div class="contact-item-label">Google Scholar</div>
+        <div class="contact-item-value">${PROFILE.scholar.handle}</div>
+        <div class="contact-item-sub">Publications &amp; citations</div>
+      </div>
+    </a>
     <div class="contact-item">
       <div class="contact-item-icon ci-location"><i class="fa-solid fa-location-dot"></i></div>
       <div class="contact-item-body">
@@ -341,6 +347,7 @@
       <a href="mailto:${PROFILE.email}" title="Email"><i class="fa-solid fa-envelope"></i></a>
       <a href="${PROFILE.github.url}" target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github"></i></a>
       <a href="${PROFILE.linkedin.url}" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="${PROFILE.scholar.url}" target="_blank" rel="noopener" title="Google Scholar"><i class="fa-brands fa-google-scholar"></i></a>
     </div>`;
 
   // ── CV quick link ───────────────────────────────────────────────

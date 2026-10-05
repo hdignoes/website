@@ -2,11 +2,12 @@
 //  EXPERIENCE  →  Experience page (experience.html)
 // ─────────────────────────────────────────────────────────────────────────────
 //  dateEnd: set to null for current positions (shows "Current" badge)
+//  group:   "research" | "leadership"
 //  bullets: array of strings; basic HTML is allowed
 
 const EXPERIENCE = [
 
-  // ── Current positions (dateEnd: null) ──────────────────────────────────────
+  // ── Research & Academic ────────────────────────────────────────────────────
 
   {
     title:      "Graduate Researcher",
@@ -15,6 +16,7 @@ const EXPERIENCE = [
     location:   "Vancouver, BC",
     dateStart:  "Sept 2024",
     dateEnd:    null,
+    group:      "research",
     bullets: [
       "Conduct research on air quality in community spaces (libraries, recreation centres, etc.), with a focus on measurement, interpretation, and public communication.",
       "Develop and apply machine-learning calibration approaches for low-cost air quality sensors measuring multiple pollutants.",
@@ -23,40 +25,13 @@ const EXPERIENCE = [
   },
 
   {
-    title:      "President",
-    company:    "UBC Sailing Club",
-    companyUrl: "",
-    location:   "Vancouver, BC",
-    dateStart:  "Oct 2024",
-    dateEnd:    null,
-    bullets: [
-      "Providing executive leadership for Canada's largest not-for-profit sailing club, guiding operations and long-term planning, and managing over $400k in assets.",
-      "Overseeing budgeting, volunteer coordination, and acting as a liaison between the university, student union, and sailing community.",
-      "Advancing initiatives related to accessibility, safety, and long-term sustainability of club programs and assets.",
-      "Upgraded technology within the club, including completing the design of a digital checkout system (Kotlin, Python, SQL), and a Discord bot connected with our membership management platform (Python)."
-    ],
-  },
-
-  {
-    title:      "Volunteer Rescue Responder",
-    company:    "Jericho Rescue",
-    companyUrl: "",
-    location:   "Vancouver, BC",
-    dateStart:  "Apr 2025",
-    dateEnd:    null,
-    bullets: [
-      "Support marine safety and emergency response operations in Burrard Inlet as part of a volunteer rescue team.",
-      "Assist in responding to on-water incidents and operate in time-sensitive situations requiring teamwork, situational awareness, and sound judgment.",
-    ],
-  },
-
-  {
-    title:      "Mitacs Intern — Knowledge Mobilization",
+    title:      "Research Coordinator",
     company:    "UBC & Clear Seas",
     companyUrl: "https://www.clearseas.org/",
     location:   "Vancouver, BC",
     dateStart:  "Sept 2025",
     dateEnd:    null,
+    group:      "research",
     bullets: [
       "Coordinating a webinar series connecting researchers, government, and industry stakeholders to facilitate knowledge exchange on marine shipping risk and environmental futures.",
       "Managing logistics, speaker outreach, and session design to support translation of research findings for non-academic audiences.",
@@ -68,8 +43,9 @@ const EXPERIENCE = [
     company:    "University of British Columbia",
     companyUrl: "https://www.ubc.ca/",
     location:   "Vancouver, BC",
-    dateStart:  "2022",
+    dateStart:  "2023",
     dateEnd:    null,
+    group:      "research",
     bullets: [
       "CHBE 464 — Chemical and Biological Engineering Laboratory (2023, 2024, 2025, 2026)",
       "ENVE 203 — Environmental Engineering and Sustainability (2024, 2025, 2026)",
@@ -79,26 +55,13 @@ const EXPERIENCE = [
   },
 
   {
-    title:      "Tutor",
-    company:    "Tutorbright, HY Academy, Paper, and Freelance",
-    companyUrl: "",
-    location:   "Vancouver, BC",
-    dateStart:  "Aug 2014",
-    dateEnd:    "Aug 2025",
-    bullets: [
-      "Tutor high school and undergraduate students in Physics, Chemistry, Mathematics, and more.",
-    ],
-  },
-
-  // ── Past positions ─────────────────────────────────────────────────────────
-
-  {
     title:      "Mitacs Intern — Marine Shipping Decarbonization",
     company:    "UBC LEAP Lab & Clear Seas",
     companyUrl: "https://www.leap-ires.org/",
     location:   "Vancouver, BC",
     dateStart:  "Sept 2023",
     dateEnd:    "Apr 2024",
+    group:      "research",
     bullets: [
       "Contributed to an interdisciplinary research project examining decarbonization pathways for the Canadian Coast Guard fleet.",
       "Participated in stakeholder consultation and structured decision-making workshops to identify priorities, evaluation criteria, and performance metrics.",
@@ -114,6 +77,7 @@ const EXPERIENCE = [
     location:   "Boulder, CO (Remote)",
     dateStart:  "May 2023",
     dateEnd:    "Aug 2023",
+    group:      "research",
     bullets: [
       "Conducted a feasibility analysis of a proposed process coupling strategy in support of a patent application.",
       "Simulated a catalytic process using open-source tools and custom Python scripts.",
@@ -129,6 +93,7 @@ const EXPERIENCE = [
     location:   "Vancouver, BC",
     dateStart:  "Oct 2021",
     dateEnd:    "Mar 2024",
+    group:      "research",
     bullets: [
       "Conducted a technoeconomic analysis of novel propane dehydrogenation processes.",
       "Built and validated process simulations for conventional and alternative process configurations using AspenTech software and Python, informed by literature and experimental data.",
@@ -144,6 +109,7 @@ const EXPERIENCE = [
     location:   "Vancouver, BC",
     dateStart:  "May 2020",
     dateEnd:    "Aug 2020",
+    group:      "research",
     bullets: [
       "Worked with a 3D printing start-up to make affordable personal protective equipment available at the onset of the COVID-19 pandemic.",
       "Gathered and synthesized stakeholder feedback to develop iterative quality-of-life improvements to PPE designs without compromising safety standards.",
@@ -157,10 +123,56 @@ const EXPERIENCE = [
     location:   "Vancouver, BC",
     dateStart:  "Apr 2018",
     dateEnd:    "May 2019",
+    group:      "research",
     bullets: [
       "Collaborated with a PhD candidate on the measurement of mechanical properties of viscoelastic neural cells.",
       "Designed and fabricated a novel measurement device that reduced cost by 80% relative to the existing prototype while improving measurement accuracy.",
       "Worked independently, designing experimental procedures and collecting and analyzing data to validate the device.",
+    ],
+  },
+
+  {
+    title:      "Tutor",
+    company:    "Tutorbright, HY Academy, Paper, and Freelance",
+    companyUrl: "",
+    location:   "Vancouver, BC",
+    dateStart:  "Aug 2014",
+    dateEnd:    "Aug 2025",
+    group:      "research",
+    bullets: [
+      "Tutor high school and undergraduate students in Physics, Chemistry, Mathematics, and more.",
+    ],
+  },
+
+  // ── Leadership & Volunteer ─────────────────────────────────────────────────
+
+  {
+    title:      "President",
+    company:    "UBC Sailing Club",
+    companyUrl: "",
+    location:   "Vancouver, BC",
+    dateStart:  "Oct 2024",
+    dateEnd:    null,
+    group:      "leadership",
+    bullets: [
+      "Providing executive leadership for Canada's largest not-for-profit sailing club, guiding operations and long-term planning, and managing over $400k in assets.",
+      "Overseeing budgeting, volunteer coordination, and acting as a liaison between the university, student union, and sailing community.",
+      "Advancing initiatives related to accessibility, safety, and long-term sustainability of club programs and assets.",
+      "Upgraded technology within the club, including completing the design of a digital checkout system (Kotlin, Python, SQL), and a Discord bot connected with our membership management platform (Python).",
+    ],
+  },
+
+  {
+    title:      "Volunteer Rescue Responder",
+    company:    "Jericho Rescue",
+    companyUrl: "",
+    location:   "Vancouver, BC",
+    dateStart:  "Apr 2025",
+    dateEnd:    null,
+    group:      "leadership",
+    bullets: [
+      "Support marine safety and emergency response operations in Burrard Inlet as part of a volunteer rescue team.",
+      "Assist in responding to on-water incidents and operate in time-sensitive situations requiring teamwork, situational awareness, and sound judgment.",
     ],
   },
 
@@ -171,6 +183,7 @@ const EXPERIENCE = [
     location:   "",
     dateStart:  "Jun 2018",
     dateEnd:    "Oct 2018",
+    group:      "leadership",
     bullets: [
       "Organized conferences over the summer and in preparation for the upcoming academic year.",
       "Served as liaison between the UBC AIChE chapter and the sister chapter at Universitat Politècnica de Catalunya in Barcelona.",
@@ -184,6 +197,7 @@ const EXPERIENCE = [
     location:   "",
     dateStart:  "Jun 2017",
     dateEnd:    "Jun 2018",
+    group:      "leadership",
     bullets: [
       "Responsible for risk assessment and hazard mitigation across all Envision teams and projects.",
       "Conducted regular safety inspections and audits of two laboratories, one workshop, and one workroom.",
@@ -198,6 +212,7 @@ const EXPERIENCE = [
     location:   "",
     dateStart:  "Sep 2016",
     dateEnd:    "May 2017",
+    group:      "leadership",
     bullets: [
       "Led a team of 6 students in the design and construction of the electrical system for a small chemically-powered car.",
       "Built and optimized a control system using an Arduino microcontroller, MOSFETs, servo motors, and photoresistors.",
