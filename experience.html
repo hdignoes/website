@@ -23,17 +23,36 @@
       vertical-align: middle;
     }
 
-    /* ── year heading ── */
-    .year-group { margin-bottom: 3rem; }
-    .year-label {
-      font-size: .8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      color: var(--teal);
-      margin-bottom: 1.2rem;
-      padding-left: 2.8rem;
+    /* ── tabs ── */
+    .tab-bar {
+      display: flex;
+      border-bottom: 2px solid #e2e8f0;
+      margin-bottom: 2rem;
     }
+    .tab-btn {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      padding: .65rem 1.4rem;
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      transition: color .18s, border-color .18s;
+      letter-spacing: .01em;
+    }
+    .tab-btn.active {
+      color: var(--teal);
+      border-bottom-color: var(--teal);
+    }
+    .tab-btn:hover:not(.active) {
+      color: var(--navy);
+    }
+
+    /* ── panes ── */
+    .tab-pane          { display: none; }
+    .tab-pane.active   { display: block; }
   </style>
 </head>
 <body>
@@ -51,7 +70,6 @@
       <li><a href="index.html">About</a></li>
       <li><a href="experience.html" class="active">Experience</a></li>
       <li><a href="projects.html">Projects</a></li>
-
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
@@ -70,10 +88,21 @@
 <!-- ── TIMELINE ──────────────────────────────────────────────────── -->
 <section class="section" style="background: var(--bg);">
   <div class="container">
-    <!-- rendered from content/experience.js -->
-    <div class="timeline" id="timeline">
-      <!-- populated by render script below -->
-    </div><!-- /.timeline -->
+
+    <!-- tab buttons -->
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="research">Research &amp; Academic</button>
+      <button class="tab-btn"        data-tab="leadership">Leadership &amp; Volunteer</button>
+    </div>
+
+    <!-- tab panes — populated by render script -->
+    <div class="tab-pane active" id="tab-research">
+      <div class="timeline" id="timeline-research"></div>
+    </div>
+    <div class="tab-pane" id="tab-leadership">
+      <div class="timeline" id="timeline-leadership"></div>
+    </div>
+
   </div>
 </section>
 
@@ -87,7 +116,7 @@
 <!-- ── RENDER ────────────────────────────────────────────────────── -->
 <script>
 (function () {
-  // ── Timeline ───────────────────────────────────────────────────
+  // ── Render a single timeline item ──────────────────────────────
   const renderItem = e => {
     const isCurrent   = e.dateEnd === null;
     const dateDisplay = isCurrent ? `${e.dateStart} – Present` : `${e.dateStart} – ${e.dateEnd}`;
@@ -114,23 +143,22 @@
       </div>`;
   };
 
-  const groupLabels = { research: 'Research & Academic', leadership: 'Leadership & Volunteer' };
-  const groupOrder  = ['research', 'leadership'];
+  // ── Populate each tab pane ─────────────────────────────────────
+  ['research', 'leadership'].forEach(g => {
+    const all    = EXPERIENCE.filter(e => e.group === g);
+    const sorted = [...all.filter(e => e.dateEnd === null), ...all.filter(e => e.dateEnd !== null)];
+    document.getElementById('timeline-' + g).innerHTML = sorted.map(renderItem).join('');
+  });
 
-  const html = groupOrder.map(g => {
-    const all = EXPERIENCE.filter(e => e.group === g);
-    if (!all.length) return '';
-    const sorted = [
-      ...all.filter(e => e.dateEnd === null),
-      ...all.filter(e => e.dateEnd !== null),
-    ];
-    return `<div class="year-group">
-      <div class="year-label">${groupLabels[g]}</div>
-      ${sorted.map(renderItem).join('')}
-    </div>`;
-  }).join('');
-
-  document.getElementById('timeline').innerHTML = html;
+  // ── Tab switching ──────────────────────────────────────────────
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
 
   // ── Footer ─────────────────────────────────────────────────────
   document.getElementById('site-footer').innerHTML =
